@@ -1,3 +1,8 @@
+/.idea/
+*.iml
+/out/
+/target/
+/.allure/
 *.class
 *.log
 *.ctxt
