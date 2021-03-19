@@ -9,10 +9,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
+
 public class Elements {
 
     private AndroidDriver driver = InitialDriver.getDriver();
-    private  static Logger log=Logger.getLogger(Elements.class);
+    private  static Logger log= Logger.getLogger(Elements.class);
 
 
     public boolean haveTextElement(By xpath, String text) {
@@ -30,7 +32,7 @@ public class Elements {
     public boolean isVisibleElement(By xpath) {
         try {
             // driver.findElement(xpath).isDisplayed();
-            WebElement element = new WebDriverWait(driver, 10000)
+            WebElement element = new WebDriverWait(driver, 10)
                     .until(ExpectedConditions.visibilityOfElementLocated(xpath));
             log.info("Checking Element");
             return true;

@@ -6,14 +6,15 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-
 import org.apache.log4j.Logger;
+
+
 
 public class InitialDriver {
 
     static AndroidDriver driver;
     static DesiredCapabilities cap = new DesiredCapabilities();
-    private  static Logger log=Logger.getLogger(InitialDriver.class);
+    private  static Logger log= Logger.getLogger(InitialDriver.class);
 
     public static AndroidDriver getDriver() {
         // create driver if not exist yet

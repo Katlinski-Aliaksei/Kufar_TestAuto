@@ -19,7 +19,7 @@ public class Buttons  {
     private AndroidDriver driver = InitialDriver.getDriver();
 
     public WebElement searchAndClickButtonById(By id) {
-        WebElement searchButton = new WebDriverWait(driver, 2)
+        WebElement searchButton = new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.elementToBeClickable(id));
         searchButton.click();
         return searchButton;
@@ -27,7 +27,7 @@ public class Buttons  {
 
 
     public WebElement searchAndClickButtonByXPath(By xpath) {
-        WebElement searchButton = new WebDriverWait(driver, 2)
+        WebElement searchButton = new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.elementToBeClickable(xpath));
         searchButton.click();
         return searchButton;
