@@ -3,6 +3,7 @@ package elements;
 import core.AndroidOptions;
 import core.InitialDriver;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -19,6 +20,7 @@ public class Buttons  {
     private AndroidDriver driver = InitialDriver.getDriver();
 
     public WebElement searchAndClickButtonById(By id) {
+
         WebElement searchButton = new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.elementToBeClickable(id));
         searchButton.click();
