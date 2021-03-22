@@ -29,7 +29,6 @@ public class Tests {
       //  initialDriver.;
         someScreen.logIn();
     }
-
     @Test
     public void isVisibleADTest() {
         Assert.assertTrue(profile.visibleElementAD());
