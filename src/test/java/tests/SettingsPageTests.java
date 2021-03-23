@@ -23,7 +23,6 @@ public class SettingsPageTests {
 
     @Before
     public void setCap() throws MalformedURLException {
-        //  initialDriver.;
         someScreen.logIn();
     }
     @Test
@@ -33,7 +32,6 @@ public class SettingsPageTests {
         Assertions. assertAll(
                 () -> assertEquals(profile.checkRusLang(),"Русский"),
                 () -> assertEquals(profile.checkBelLang(),"Беларуская")
-
         );
         profile.clickClose();
         profile.clickBackButton();

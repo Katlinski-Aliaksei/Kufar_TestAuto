@@ -64,4 +64,15 @@ public class Elements {
         return text;
     }
 
+    public boolean isVisibleElement(WebElement webElement) {
+        try {
+            WebElement element = new WebDriverWait(driver, 10)
+                    .until(ExpectedConditions.visibilityOf(webElement));
+            log.info("Checking Element");
+            return true;
+        } catch (Exception ElementNotVisible) {
+            return false;
+        }
+    }
+
 }

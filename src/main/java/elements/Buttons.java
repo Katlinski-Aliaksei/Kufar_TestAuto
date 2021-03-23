@@ -1,17 +1,11 @@
 package elements;
 
-import core.AndroidOptions;
 import core.InitialDriver;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class Buttons  {
 
@@ -33,6 +27,12 @@ public class Buttons  {
                 .until(ExpectedConditions.elementToBeClickable(xpath));
         searchButton.click();
         return searchButton;
+    }
+
+    public void searchAndClickButtonBy(WebElement webElement) {
+        WebElement searchButton = new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.elementToBeClickable(webElement));
+        searchButton.click();
     }
 
 

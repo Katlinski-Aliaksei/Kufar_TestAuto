@@ -1,18 +1,12 @@
 package tests;
 
-import core.AndroidOptions;
-import core.InitialDriver;
-import elements.Buttons;
 import elements.Elements;
-import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.qameta.allure.Step;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 //import org.junit.jupiter.api.BeforeAll;
 //import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.WebElement;
 import pages.Profile;
 import pages.SomeScreen;
 
