@@ -1,5 +1,6 @@
 package tests;
 
+import core.InitialDriver;
 import elements.Buttons;
 import elements.Elements;
 import enums.Credentials;
@@ -17,9 +18,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class SettingsPageTests {
-    SomeScreen someScreen=new SomeScreen();
+    SomeScreen someScreen=new SomeScreen(InitialDriver.getDriver());
     Elements elements=new Elements();
-    Profile profile=new Profile();
+    Profile profile=new Profile(InitialDriver.getDriver());
     Buttons buttons=new Buttons();
 
     @Before

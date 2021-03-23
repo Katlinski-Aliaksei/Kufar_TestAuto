@@ -26,8 +26,8 @@ public class InitialDriver {
     // private - so can use only in this class
     private static AndroidDriver initializeDriver() {
         cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        // cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9.0");
-        cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.0");
+         cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9.0");
+        //cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.0");
         //cap.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
         // cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "Appium");
         //cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
