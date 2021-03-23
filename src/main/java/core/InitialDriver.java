@@ -2,11 +2,11 @@ package core;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import org.apache.log4j.Logger;
 
 
 public class InitialDriver {
