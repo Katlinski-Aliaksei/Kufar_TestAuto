@@ -1,5 +1,6 @@
 package tests;
 
+import core.InitialDriver;
 import elements.Elements;
 import enums.Credentials;
 import org.junit.After;
@@ -15,15 +16,14 @@ import java.net.MalformedURLException;
 
 
 public class ProfilePageTests {
-    SomeScreen someScreen=new SomeScreen();
+    SomeScreen someScreen=new SomeScreen(InitialDriver.getDriver());
     Elements elements=new Elements();
-    Profile profile=new Profile();
+    Profile profile=new Profile(InitialDriver.getDriver());
 
 
 
     @Before
     public void setCap() throws MalformedURLException {
-      //  initialDriver.;
         someScreen.logIn(Credentials.ALEKSEI_EMAIL.getType(), Credentials.ALEKSEI_PASS.getType());
     }
     @Test

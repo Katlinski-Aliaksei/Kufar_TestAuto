@@ -17,11 +17,11 @@ public class Elements {
     private  static Logger log= Logger.getLogger(Elements.class);
 
 
-    public boolean haveTextElement(By xpath, String text) {
+    public boolean haveTextElement(WebElement element, String text) {
         try {
             //System.out.println(driver.findElement(xpath).getText());
             Thread.sleep(5000);
-            driver.findElement(xpath).getText().contains(text);
+            driver.findElement((By) element).getText().contains(text);
             log.info("Checking Text");
             return true;
         } catch (Exception ElementNotVisible) {
@@ -41,9 +41,9 @@ public class Elements {
         }
     }
 
-    public boolean isSelectedElement(By xpath) {
+    public boolean isSelectedElement(WebElement element) {
         try {
-             driver.findElement(xpath).isSelected();
+             driver.findElement((By) element).isSelected();
 //            Boolean element = new WebDriverWait(driver, 10)
 //                    .until(ExpectedConditions.elementToBeSelected(xpath));
             log.info("Select Element");
@@ -53,8 +53,8 @@ public class Elements {
         }
     }
 
-    public String getTextByXPath(By xpath){
-        String text=driver.findElement(xpath).getText();
+    public String getTextByWebElement(WebElement element){
+        String text=driver.findElement((By) element).getText();
         System.out.println(text);
         return text;
     }
@@ -73,6 +73,11 @@ public class Elements {
         } catch (Exception ElementNotVisible) {
             return false;
         }
+    }
+    public void searchFieldAndSendKey(WebElement webElement,String key) {
+        WebElement searchField = new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.elementToBeClickable(webElement));
+        searchField.sendKeys(key);
     }
 
 }

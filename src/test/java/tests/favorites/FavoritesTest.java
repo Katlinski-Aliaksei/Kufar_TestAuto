@@ -10,7 +10,7 @@ import pages.SomeScreen;
 
 public class FavoritesTest {
     Favorites favorites = new Favorites(InitialDriver.getDriver());
-    SomeScreen someScreen = new SomeScreen();
+    SomeScreen someScreen = new SomeScreen(InitialDriver.getDriver());
 
     @Before
     public void signUpOrLogin() {
