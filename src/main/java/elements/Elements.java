@@ -41,6 +41,29 @@ public class Elements {
         }
     }
 
+    public boolean isSelectedElement(By xpath) {
+        try {
+             driver.findElement(xpath).isSelected();
+//            Boolean element = new WebDriverWait(driver, 10)
+//                    .until(ExpectedConditions.elementToBeSelected(xpath));
+            log.info("Select Element");
+            return true;
+        } catch (Exception ElementNotVisible) {
+            return false;
+        }
+    }
+
+    public String getTextByXPath(By xpath){
+        String text=driver.findElement(xpath).getText();
+        System.out.println(text);
+        return text;
+    }
+
+    public String getTextById(By id){
+        String text=driver.findElement(id).getText();
+        return text;
+    }
+
     public boolean isVisibleElement(WebElement webElement) {
         try {
             WebElement element = new WebDriverWait(driver, 10)

@@ -13,6 +13,7 @@ public class SomeScreen {
 
     private By PROFILE_BUTTON = By.id("se.scmv.belarus:id/menu_profile");
     private By LOGIN_BUTTON = By.id("se.scmv.belarus:id/login");
+    private By CLOSE_BUTTON=By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ImageView");
     private By CANCEL_BUTTON = By.id("com.google.android.gms:id/cancel");//кнопка "ничего из перечисленного" всплывающее окно
     private By AVATAR_BUTTON = By.id("se.scmv.belarus:id/avatar");
     private By LOGOUT_BUTTON = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[3]/android.widget.TextView");
@@ -52,6 +53,9 @@ public class SomeScreen {
     public void enterCredentialsAndLogin() {
         buttons.searchAndClickButtonByXPath(EMAIL_PATH).sendKeys(Email);
         buttons.searchAndClickButtonByXPath(PASSWORD_PATH).sendKeys(Password);
+
+//кнопка назад
+        //buttons.searchAndClickButtonByXPath(CLOSE_BUTTON);
         buttons.clickButtonBackOnKeyboard();
         buttons.searchAndClickButtonById(LOGIN_BUTTON);
     }

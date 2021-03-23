@@ -1,8 +1,5 @@
 package tests;
 
-import core.AndroidOptions;
-import core.InitialDriver;
-import elements.Buttons;
 import elements.Elements;
 import org.junit.After;
 import org.junit.Assert;
@@ -10,14 +7,13 @@ import org.junit.Before;
 import org.junit.Test;
 //import org.junit.jupiter.api.BeforeAll;
 //import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.WebElement;
 import pages.Profile;
 import pages.SomeScreen;
 
 import java.net.MalformedURLException;
 
 
-public class Tests {
+public class ProfilePageTests {
     SomeScreen someScreen=new SomeScreen();
     Elements elements=new Elements();
     Profile profile=new Profile();
@@ -38,6 +34,16 @@ public class Tests {
     public void haveTextADTest(){
         Assert.assertTrue(profile.haveTextAD());
     }
+
+    @Test
+    public void isVisibleSettingsTest(){
+        Assert.assertTrue(profile.visibleElementSettings());
+    }
+    @Test
+    public void haveTextSettingTest(){
+        Assert.assertTrue(profile.haveTextSettings());
+    }
+
 
 
     @After
