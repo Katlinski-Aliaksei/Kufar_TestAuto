@@ -15,6 +15,7 @@ public class FavoritesTest {
     Advertisements advertisements = new Advertisements(InitialDriver.getDriver());
     SomeScreen someScreen = new SomeScreen();
     Advert advert = new Advert(InitialDriver.getDriver());
+    SomeScreen someScreen = new SomeScreen(InitialDriver.getDriver());
 
     @Before
     public void signUpOrLogin() {
