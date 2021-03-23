@@ -29,6 +29,12 @@ public class Elements {
         }
     }
 
+    public String getTextFromElement(WebElement webElement) {
+        new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.visibilityOf(webElement));
+        return webElement.getText();
+    }
+
     public boolean isVisibleElement(By xpath) {
         try {
             // driver.findElement(xpath).isDisplayed();
