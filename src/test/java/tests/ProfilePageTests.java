@@ -1,6 +1,7 @@
 package tests;
 
 import elements.Elements;
+import enums.Credentials;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -23,7 +24,7 @@ public class ProfilePageTests {
     @Before
     public void setCap() throws MalformedURLException {
       //  initialDriver.;
-        someScreen.logIn();
+        someScreen.logIn(Credentials.ALEKSEI_EMAIL.getType(), Credentials.ALEKSEI_PASS.getType());
     }
     @Test
     public void isVisibleADTest() {

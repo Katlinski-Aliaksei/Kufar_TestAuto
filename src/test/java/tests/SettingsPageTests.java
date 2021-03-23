@@ -2,6 +2,7 @@ package tests;
 
 import elements.Buttons;
 import elements.Elements;
+import enums.Credentials;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -23,7 +24,7 @@ public class SettingsPageTests {
 
     @Before
     public void setCap() throws MalformedURLException {
-        someScreen.logIn();
+        someScreen.logIn(Credentials.ALEKSEI_EMAIL.getType(), Credentials.ALEKSEI_PASS.getType());
     }
     @Test
     public void languageMenuTest(){
