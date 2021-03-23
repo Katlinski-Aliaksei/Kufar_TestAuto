@@ -13,7 +13,6 @@ import pages.SomeScreen;
 public class FavoritesTest {
     Favorites favorites = new Favorites(InitialDriver.getDriver());
     Advertisements advertisements = new Advertisements(InitialDriver.getDriver());
-    SomeScreen someScreen = new SomeScreen();
     Advert advert = new Advert(InitialDriver.getDriver());
     SomeScreen someScreen = new SomeScreen(InitialDriver.getDriver());
 
