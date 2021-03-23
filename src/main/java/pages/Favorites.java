@@ -14,7 +14,7 @@ public class Favorites extends BasePage {
     Elements elements = new Elements();
 
     @AndroidFindBy(id = "se.scmv.belarus:id/menu_favorites")
-    private WebElement FAVORITES;
+    private WebElement MENU_FAVORITES;
     @AndroidFindBy(id = "se.scmv.belarus:id/login")
     private WebElement SIGN_IN_OR_LOGIN;
     @AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Объявления\"]/android.widget.LinearLayout")
@@ -24,11 +24,9 @@ public class Favorites extends BasePage {
     @AndroidFindBy(accessibility = "Продавцы")
     private WebElement SELLERS;
     @AndroidFindBy(id = "se.scmv.belarus:id/subject")
-    private WebElement SUBJECT_FROM_FAVORITES;
+    private WebElement TITLE_FAVORITE_SEARCH;
     @AndroidFindBy(id = "se.scmv.belarus:id/favoriteContainer")
     private WebElement IS_FAVORITE;
-    @AndroidFindBy(id = "se.scmv.belarus:id/title")
-    private WebElement TITLE_FAVORITE_SEARCH;
     @AndroidFindBy(id = "se.scmv.belarus:id/name")
     private WebElement SELLER_NAME;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget" +
@@ -52,21 +50,6 @@ public class Favorites extends BasePage {
         buttons.searchAndClickButtonBy(SIGN_IN_OR_LOGIN);
     }
 
-    public String getTitleFavoriteInAdvertisement() {
-        chooseAdsSection();
-        return SUBJECT_FROM_FAVORITES.getText();
-    }
-
-    public String getTitleFavoriteSearch() {
-        chooseSearchSection();
-        return TITLE_FAVORITE_SEARCH.getText();
-    }
-
-    public String getSellerNameFromFavorites() {
-        chooseSellersSection();
-        return SELLER_NAME.getText();
-    }
-
     public boolean isTakeAwayAdsFromFavorites() {
         goToFavorites();
         buttons.searchAndClickButtonBy(IS_FAVORITE);
@@ -75,8 +58,12 @@ public class Favorites extends BasePage {
         return elements.isVisibleElement(ADS_FAVORITE);
     }
 
-    private void goToFavorites() {
-        buttons.searchAndClickButtonBy(FAVORITES);
+    public void goToFavorites() {
+        buttons.searchAndClickButtonBy(MENU_FAVORITES);
+    }
+
+    public String getAdTitleInFavorite() {
+        return elements.getTextFromElement(TITLE_FAVORITE_SEARCH);
     }
 
     private void chooseAdsSection() {
