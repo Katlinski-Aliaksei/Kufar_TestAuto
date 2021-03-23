@@ -6,7 +6,6 @@ import elements.Screen;
 import org.openqa.selenium.By;
 
 public class SomeScreen {
-
     Buttons buttons = new Buttons();
     Screen screen = new Screen();
     Elements elements = new Elements();
@@ -28,12 +27,12 @@ public class SomeScreen {
     private String Password = "192966804Kat";
 
 
-    public void logIn() {
+    public void logIn(String email, String password) {
        goToLoginProcess();
        compelledLogIn();
        //Кнопка ничего из предложенного всплывающее окно перед вводом логин\пароль
        //в эмуляторе не появляется,в реальном девайсе есть
-       enterCredentialsAndLogin();
+       enterCredentialsAndLogin(email, password);
        goToMyData();
 
     }
@@ -50,9 +49,9 @@ public class SomeScreen {
         buttons.searchAndClickButtonById(CANCEL_BUTTON);
     }
 
-    public void enterCredentialsAndLogin() {
-        buttons.searchAndClickButtonByXPath(EMAIL_PATH).sendKeys(Email);
-        buttons.searchAndClickButtonByXPath(PASSWORD_PATH).sendKeys(Password);
+    public void enterCredentialsAndLogin(String email, String password) {
+        buttons.searchAndClickButtonByXPath(EMAIL_PATH).sendKeys(email);
+        buttons.searchAndClickButtonByXPath(PASSWORD_PATH).sendKeys(password);
 
 //кнопка назад
         //buttons.searchAndClickButtonByXPath(CLOSE_BUTTON);
