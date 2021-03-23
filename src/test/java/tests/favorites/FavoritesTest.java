@@ -1,6 +1,7 @@
 package tests.favorites;
 
 import core.InitialDriver;
+import enums.Credentials;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +16,7 @@ public class FavoritesTest {
     public void signUpOrLogin() {
         favorites.signInOrLogin();
         someScreen.compelledLogIn();
-        someScreen.enterCredentialsAndLogin();
+        someScreen.enterCredentialsAndLogin(Credentials.VADYM_EMAIL.getType(), Credentials.VADYM_PASS.getType());
     }
 
     @Test
