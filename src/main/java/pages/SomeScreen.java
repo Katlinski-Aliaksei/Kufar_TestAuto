@@ -11,7 +11,6 @@ public class SomeScreen {
     Screen screen = new Screen();
     Elements elements = new Elements();
 
-
     private By PROFILE_BUTTON = By.id("se.scmv.belarus:id/menu_profile");
     private By LOGIN_BUTTON = By.id("se.scmv.belarus:id/login");
     private By CLOSE_BUTTON=By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ImageView");
@@ -30,22 +29,12 @@ public class SomeScreen {
 
 
     public void logIn() {
-       buttons.searchAndClickButtonById(PROFILE_BUTTON);
-        buttons.searchAndClickButtonById(PROFILE_BUTTON);
-        buttons.searchAndClickButtonById(LOGIN_BUTTON);
-       // buttons.searchAndClickButtonById(CANCEL_BUTTON);
-        //Кнопка ничего из предложенного всплывающее окно перед вводом логин\пароль
-        //в эмуляторе не появляется,в реальном девайсе есть
-
-        buttons.searchAndClickButtonByXPath(EMAIL_PATH).sendKeys(Email);
-        buttons.searchAndClickButtonByXPath(PASSWORD_PATH).sendKeys(Password);
-
-
-       // screen.scrollablePageID(LOGIN_BUTTON);
-        buttons.searchAndClickButtonByXPath(CLOSE_BUTTON);
-        buttons.searchAndClickButtonById(LOGIN_BUTTON);
-        buttons.searchAndClickButtonById(AVATAR_BUTTON);
-        buttons.searchAndClickButtonByXPath(BACK_BUTTON_PROFILE);
+       goToLoginProcess();
+       compelledLogIn();
+       //Кнопка ничего из предложенного всплывающее окно перед вводом логин\пароль
+       //в эмуляторе не появляется,в реальном девайсе есть
+       enterCredentialsAndLogin();
+       goToMyData();
 
     }
 
@@ -55,5 +44,29 @@ public class SomeScreen {
         screen.scrollablePage("Выйти");
         buttons.searchAndClickButtonByXPath(LOGOUT_BUTTON);
 
+    }
+
+    public void compelledLogIn() {
+        buttons.searchAndClickButtonById(CANCEL_BUTTON);
+    }
+
+    public void enterCredentialsAndLogin() {
+        buttons.searchAndClickButtonByXPath(EMAIL_PATH).sendKeys(Email);
+        buttons.searchAndClickButtonByXPath(PASSWORD_PATH).sendKeys(Password);
+
+//кнопка назад
+        //buttons.searchAndClickButtonByXPath(CLOSE_BUTTON);
+        buttons.clickButtonBackOnKeyboard();
+        buttons.searchAndClickButtonById(LOGIN_BUTTON);
+    }
+
+    private void goToMyData() {
+        buttons.searchAndClickButtonById(AVATAR_BUTTON);
+        buttons.searchAndClickButtonByXPath(BACK_BUTTON_PROFILE);
+    }
+    private void goToLoginProcess() {
+        buttons.searchAndClickButtonById(PROFILE_BUTTON);
+        buttons.searchAndClickButtonById(PROFILE_BUTTON);
+        buttons.searchAndClickButtonById(LOGIN_BUTTON);
     }
 }
