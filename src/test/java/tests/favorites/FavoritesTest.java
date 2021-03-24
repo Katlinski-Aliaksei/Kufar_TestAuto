@@ -4,8 +4,8 @@ import core.InitialDriver;
 import enums.Credentials;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.Advert;
-import pages.Advertisements;
+import pages.advertisements.Advert;
+import pages.advertisements.Advertisements;
 import pages.Favorites;
 import pages.SomeScreen;
 

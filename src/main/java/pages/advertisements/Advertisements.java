@@ -1,21 +1,11 @@
-package pages;
+package pages.advertisements;
 
-import elements.Buttons;
-import elements.Elements;
-import elements.Screen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
+import pages.BasePage;
 
 public class Advertisements extends BasePage {
-    public Advertisements(AndroidDriver driver) {
-        super(driver);
-    }
-
-    Buttons buttons = new Buttons();
-    Screen screen = new Screen();
-    Elements elements = new Elements();
-
     @AndroidFindBy(id = "se.scmv.belarus:id/menu_listing")
     private WebElement ADS;
     @AndroidFindBy(id = "se.scmv.belarus:id/filtersButton")
@@ -34,6 +24,10 @@ public class Advertisements extends BasePage {
             ".ViewGroup/android.view.ViewGroup/android.widget.ViewAnimator/androidx.recyclerview.widget" +
             ".RecyclerView/android.widget.FrameLayout[1]/android.view.ViewGroup")
     private WebElement FIRST_ELEMENT_OF_ADS;
+
+    public Advertisements(AndroidDriver driver) {
+        super(driver);
+    }
 
     public void goToAdvertisements() {
         buttons.searchAndClickButtonBy(MENU_LISTING);
