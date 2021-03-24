@@ -9,6 +9,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.Assertion;
+import org.testng.asserts.SoftAssert;
 import pages.Profile;
 import pages.SomeScreen;
 
@@ -25,12 +26,12 @@ public class SettingsPageTests {
 
     @Test
     public void languageMenuTest() {
+        SoftAssert softAssertion= new SoftAssert();
         profile.openSettings();
         profile.clickDropButtonLanguage();
-//        Assertion.assertAll(
-//                () -> assertEquals(profile.checkRusLang(), "Русский"),
-//                () -> assertEquals(profile.checkBelLang(), "Беларуская")
-//        );
+        softAssertion.assertEquals(profile.checkRusLang(), "Русский");
+        softAssertion.assertEquals(profile.checkBelLang(), "Беларуская");
+        softAssertion.assertAll();
         profile.clickClose();
         profile.clickBackButton();
     }
@@ -41,14 +42,10 @@ public class SettingsPageTests {
         profile.clickDropButtonLanguage();
         profile.setBelLanguage();
         profile.clickDropButtonLanguage();
-
         Assert.assertTrue(profile.isSelectedBelLang());
-
         profile.setRusLanguage();
         profile.clickDropButtonLanguage();
-
         Assert.assertTrue(profile.isSelectedRusLang());
-
         profile.clickClose();
         profile.clickBackButton();
     }
