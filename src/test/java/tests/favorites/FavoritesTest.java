@@ -2,8 +2,8 @@ package tests.favorites;
 
 import core.InitialDriver;
 import enums.Credentials;
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import pages.Advert;
 import pages.Advertisements;
 import pages.Favorites;
