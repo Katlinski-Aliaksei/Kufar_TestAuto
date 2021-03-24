@@ -20,7 +20,6 @@ public class Screen {
     }
 
     public void swipeFromUpToBottom() {
-        final int ANIMATION_TIME = 200;
         final int PRESS_TIME = 200;
         int edgeBorder = 10;
         PointOption pointOptionStart, pointOptionEnd;
@@ -39,7 +38,7 @@ public class Screen {
             return;
         }
         try {
-            Thread.sleep(ANIMATION_TIME);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
