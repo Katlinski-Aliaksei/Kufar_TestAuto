@@ -6,6 +6,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -26,11 +27,11 @@ public class InitialDriver {
         if (PropertiesConfig.getProperty("nameDevice").equals(Devices.REALME6PRO.getType())) {
             cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10.0");
             cap.setCapability(MobileCapabilityType.NO_RESET, false);
-            cap.setCapability("autoGrandPermission", PropertiesConfig.getProperty("Platform"));
+            cap.setCapability("autoGrandPermission", true);
             cap.setCapability("appPackage", "se.scmv.belarus");
             cap.setCapability("appActivity", "se.scmv.belarus.activities.SplashScreenActivity");
         } else if (PropertiesConfig.getProperty("nameDevice").equals(Devices.XIAOMI.getType())) {
-           //TODO Capability для другого девайса
+            //TODO Capability для другого девайса
         }
 
 

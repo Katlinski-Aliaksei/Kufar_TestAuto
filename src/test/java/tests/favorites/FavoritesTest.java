@@ -4,10 +4,10 @@ import core.InitialDriver;
 import enums.Credentials;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.advertisements.Advert;
-import pages.advertisements.Advertisements;
 import pages.Favorites;
 import pages.SomeScreen;
+import pages.advertisements.Advert;
+import pages.advertisements.Advertisements;
 
 public class FavoritesTest {
     Favorites favorites = new Favorites(InitialDriver.getDriver());
@@ -19,7 +19,7 @@ public class FavoritesTest {
     public void When_AdvertAddToFavorites_Then_TheirTitlesEquals() {
         favorites.signInOrLogin();
         someScreen.compelledLogIn();
-        someScreen.enterCredentialsAndLogin(Credentials.VADYM_EMAIL.getType(), Credentials.VADYM_PASS.getType());
+        someScreen.enterCredentialsAndLogin(Credentials.EMAIL.getType(), Credentials.PASS.getType());
 
         advertisements.goToAdvertisements();
         advertisements.goToFirstAdvert();

@@ -18,7 +18,7 @@ public class ProfilePageTests {
 
     @BeforeTest
     public void setCap() {
-        someScreen.logIn(Credentials.ALEKSEI_EMAIL.getType(), Credentials.ALEKSEI_PASS.getType());
+        someScreen.logIn(Credentials.EMAIL.getType(), Credentials.PASS.getType());
     }
 
     @Test

@@ -3,10 +3,8 @@ package enums;
 import configs.PropertiesConfig;
 
 public enum Credentials {
-    ALEKSEI_EMAIL(PropertiesConfig.getProperty("alekseiEmail")),
-    ALEKSEI_PASS(PropertiesConfig.getProperty("alekseiPassword")),
-    VADYM_EMAIL(PropertiesConfig.getProperty("vadymEmail")),
-    VADYM_PASS(PropertiesConfig.getProperty("vadymPassword"));
+    EMAIL(PropertiesConfig.getProperty("Email")),
+    PASS(PropertiesConfig.getProperty("Password"));
 
     private final String cred;
 
