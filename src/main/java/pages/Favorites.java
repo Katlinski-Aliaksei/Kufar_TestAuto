@@ -1,18 +1,10 @@
 package pages;
 
-import core.InitialDriver;
-import elements.Buttons;
-import elements.Elements;
-import elements.Screen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
 public class Favorites extends BasePage {
-    Buttons buttons = new Buttons();
-    Screen screen = new Screen();
-    Elements elements = new Elements();
-
     @AndroidFindBy(id = "se.scmv.belarus:id/menu_favorites")
     private WebElement MENU_FAVORITES;
     @AndroidFindBy(id = "se.scmv.belarus:id/login")

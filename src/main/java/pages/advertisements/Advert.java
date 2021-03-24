@@ -1,4 +1,4 @@
-package pages;
+package pages.advertisements;
 
 import elements.Buttons;
 import elements.Elements;
@@ -6,16 +6,9 @@ import elements.Screen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
+import pages.BasePage;
 
 public class Advert extends BasePage {
-    public Advert(AndroidDriver driver) {
-        super(driver);
-    }
-
-    Buttons buttons = new Buttons();
-    Screen screen = new Screen();
-    Elements elements = new Elements();
-
     @AndroidFindBy(id = "se.scmv.belarus:id/favoriteIcon")
     private WebElement FAVORITE_ICON;
     @AndroidFindBy(id = "se.scmv.belarus:id/title")
@@ -34,6 +27,10 @@ public class Advert extends BasePage {
     private WebElement FOLLOW_BUTTON;
     @AndroidFindBy(accessibility = "Перейти вверх")
     private WebElement BACK_BUTTON;
+
+    public Advert(AndroidDriver driver) {
+        super(driver);
+    }
 
     public void addAdToFavorites() {
         buttons.searchAndClickButtonBy(FAVORITE_ICON);

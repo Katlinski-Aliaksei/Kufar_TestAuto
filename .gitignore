@@ -22,5 +22,5 @@ out/
 build/
 classes/
 .gradle
-src/main/resources/localConf.properties
+/src/main/resources/localConf.properties
 hs_err_pid*
