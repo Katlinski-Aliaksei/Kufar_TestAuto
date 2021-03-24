@@ -12,35 +12,34 @@ import org.junit.jupiter.api.Assertions;
 import pages.Profile;
 import pages.SomeScreen;
 
-import java.net.MalformedURLException;
-
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
 
 public class SettingsPageTests {
-    SomeScreen someScreen=new SomeScreen(InitialDriver.getDriver());
-    Elements elements=new Elements();
-    Profile profile=new Profile(InitialDriver.getDriver());
-    Buttons buttons=new Buttons();
+    SomeScreen someScreen = new SomeScreen(InitialDriver.getDriver());
+    Elements elements = new Elements();
+    Profile profile = new Profile(InitialDriver.getDriver());
+    Buttons buttons = new Buttons();
 
     @Before
-    public void setCap() throws MalformedURLException {
+    public void setCap() {
         someScreen.logIn(Credentials.ALEKSEI_EMAIL.getType(), Credentials.ALEKSEI_PASS.getType());
     }
+
     @Test
-    public void languageMenuTest(){
+    public void languageMenuTest() {
         profile.openSettings();
         profile.clickDropButtonLanguage();
-        Assertions. assertAll(
-                () -> assertEquals(profile.checkRusLang(),"Русский"),
-                () -> assertEquals(profile.checkBelLang(),"Беларуская")
+        Assertions.assertAll(
+                () -> assertEquals(profile.checkRusLang(), "Русский"),
+                () -> assertEquals(profile.checkBelLang(), "Беларуская")
         );
         profile.clickClose();
         profile.clickBackButton();
     }
 
     @Test
-    public void checkSelectLanguageTest() throws InterruptedException {
+    public void checkSelectLanguageTest() {
         profile.openSettings();
         profile.clickDropButtonLanguage();
         profile.setBelLanguage();
@@ -57,10 +56,8 @@ public class SettingsPageTests {
         profile.clickBackButton();
     }
 
-
-
     @After
-    public void logOut(){
+    public void logOut() {
         someScreen.logOut();
 
     }

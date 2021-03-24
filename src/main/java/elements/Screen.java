@@ -6,7 +6,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 
 import java.time.Duration;
@@ -20,14 +19,8 @@ public class Screen {
         log.info("Page is scrollable");
     }
 
-    public void scrollablePageID(By id) {
-        // driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().resourceId("+"\""+id+"\""+").instance(0));").click();
-        log.info("Page is scrollable");
-    }
-
     public void swipeFromUpToBottom() {
         final int PRESS_TIME = 200;
-
         int edgeBorder = 10;
         PointOption pointOptionStart, pointOptionEnd;
         Dimension dims = driver.manage().window().getSize();

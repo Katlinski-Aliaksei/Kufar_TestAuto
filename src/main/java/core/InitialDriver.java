@@ -6,7 +6,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -17,14 +16,12 @@ public class InitialDriver {
     private static Logger log = Logger.getLogger(InitialDriver.class);
 
     public static AndroidDriver getDriver() {
-        // create driver if not exist yet
         if (driver == null) {
             driver = initializeDriver();
         }
         return driver;
     }
 
-    // private - so can use only in this class
     private static AndroidDriver initializeDriver() {
         if (PropertiesConfig.getProperty("nameDevice").equals(Devices.REALME6PRO.getType())) {
             cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10.0");
