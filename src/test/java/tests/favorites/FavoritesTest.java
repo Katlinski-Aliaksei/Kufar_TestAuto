@@ -3,7 +3,6 @@ package tests.favorites;
 import core.InitialDriver;
 import enums.Credentials;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import pages.Advert;
 import pages.Advertisements;
@@ -16,15 +15,12 @@ public class FavoritesTest {
     Advert advert = new Advert(InitialDriver.getDriver());
     SomeScreen someScreen = new SomeScreen(InitialDriver.getDriver());
 
-    @Before
-    public void signUpOrLogin() {
+    @Test
+    public void When_AdvertAddToFavorites_Then_TheirTitlesEquals() {
         favorites.signInOrLogin();
         someScreen.compelledLogIn();
         someScreen.enterCredentialsAndLogin(Credentials.VADYM_EMAIL.getType(), Credentials.VADYM_PASS.getType());
-    }
 
-    @Test
-    public void When_AdvertAddToFavorites_Then_TheirTitlesEquals() {
         advertisements.goToAdvertisements();
         advertisements.goToFirstAdvert();
         advert.addAdToFavorites();
@@ -32,6 +28,7 @@ public class FavoritesTest {
         advert.goBack();
         advertisements.goToFavorites();
         String actualAdTitle = favorites.getAdTitleInFavorite();
+
         Assert.assertEquals(expectedAdTitle, actualAdTitle);
     }
 
