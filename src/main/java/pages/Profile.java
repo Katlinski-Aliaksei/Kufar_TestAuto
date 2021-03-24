@@ -1,6 +1,5 @@
 package pages;
 
-import core.InitialDriver;
 import elements.Buttons;
 import elements.Elements;
 import elements.Screen;
@@ -14,9 +13,6 @@ public class Profile extends BasePage {
     Screen screen = new Screen();
     Elements elements = new Elements();
 
-    //Локаторы меню Профиль
-
-    //Мои обьявления
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[3]/android.widget.TextView")
     private WebElement AD;
     //Мои заказы
@@ -52,9 +48,9 @@ public class Profile extends BasePage {
         super(driver);
     }
 
-    public boolean haveTextAD() {
+    public String haveTextAD() {
 
-        return elements.haveTextElement(AD, "Мои обьявления");
+        return elements.getTextFromElement(AD);
     }
 
     public boolean visibleElementAD() {
@@ -62,16 +58,15 @@ public class Profile extends BasePage {
         return elements.isVisibleElement(AD);
     }
 
-    public boolean haveTextSettings() {
+    public String haveTextSettings() {
 
-        return elements.haveTextElement(SETTINGS, "Настройки");
+        return elements.getTextFromElement(SETTINGS);
     }
 
     public boolean visibleElementSettings() {
 
         return elements.isVisibleElement(SETTINGS);
     }
-
 
     public void openSettings() {
         buttons.searchAndClickButtonBy(SETTINGS);
@@ -82,7 +77,7 @@ public class Profile extends BasePage {
     }
 
     public String checkRusLang() {
-        return elements.getTextByWebElement(RUS_LANGUAGE);
+        return elements.getTextFromElement(RUS_LANGUAGE);
     }
 
     public void setBelLanguage() {
@@ -94,7 +89,7 @@ public class Profile extends BasePage {
     }
 
     public String checkBelLang() {
-        return elements.getTextByWebElement(BEL_LANGUAGE);
+        return elements.getTextFromElement(BEL_LANGUAGE);
     }
 
     public boolean isSelectedBelLang() {
