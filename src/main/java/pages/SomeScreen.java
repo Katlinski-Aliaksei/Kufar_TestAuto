@@ -64,7 +64,6 @@ public class SomeScreen extends BasePage {
     public void enterCredentialsAndLogin(String email, String password) {
         elements.searchFieldAndSendKey(EMAIL_PATH, email);
         elements.searchFieldAndSendKey(PASSWORD_PATH, password);
-        buttons.clickButtonBackOnKeyboard();
         buttons.searchAndClickButtonBy(LOGIN_BUTTON);
     }
 

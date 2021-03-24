@@ -10,7 +10,7 @@ public class PropertiesConfig {
 
     static {
         try {
-            fileInputStream = new FileInputStream("src/main/resources/conf.properties");
+            fileInputStream = new FileInputStream("src/main/resources/localConf.properties");
             PROPERTIES = new Properties();
             PROPERTIES.load(fileInputStream);
         } catch (IOException e) {
