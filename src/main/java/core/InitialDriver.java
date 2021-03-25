@@ -30,19 +30,15 @@ public class InitialDriver {
             cap.setCapability("autoGrandPermission", true);
             cap.setCapability("appPackage", "se.scmv.belarus");
             cap.setCapability("appActivity", "se.scmv.belarus.activities.SplashScreenActivity");
-        } else if (PropertiesConfig.getProperty("nameDevice").equals(Devices.XIAOMI.getType())) {
-            //TODO Capability для другого девайса
+        } else if (PropertiesConfig.getProperty("nameDevice").equals(Devices.REDMINOTE8.getType())) {
+            cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+            cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9.0");
+            cap.setCapability(MobileCapabilityType.NO_RESET, false);
+            cap.setCapability("autoGrandPermission", true);
+            cap.setCapability("appPackage", "se.scmv.belarus");
+            cap.setCapability("appActivity", "se.scmv.belarus.activities.SplashScreenActivity");
         }
 
-
-//        cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-//        cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9.0");
-//        //cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.0");
-//        //cap.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
-//        // cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "Appium");
-//        //cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
-//        cap.setCapability(MobileCapabilityType.APP, "C:\\Users\\anduser\\Downloads\\se.scmv.belarus_v1.70.2_1702.apk");
-        //cap = capability();
         AndroidDriver driver = null;
         try {
             driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), cap);
