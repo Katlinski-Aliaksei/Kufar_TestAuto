@@ -1,17 +1,10 @@
 package pages;
 
-import elements.Buttons;
-import elements.Elements;
-import elements.Screen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
 public class Profile extends BasePage {
-
-    Buttons buttons = new Buttons();
-    Screen screen = new Screen();
-    Elements elements = new Elements();
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[3]/android.widget.TextView")
     private WebElement AD;
