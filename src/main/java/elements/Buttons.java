@@ -21,6 +21,4 @@ public class Buttons {
     public void clickButtonBackOnKeyboard() {
         driver.pressKey(new KeyEvent(AndroidKey.BACK));
     }
-
-
 }

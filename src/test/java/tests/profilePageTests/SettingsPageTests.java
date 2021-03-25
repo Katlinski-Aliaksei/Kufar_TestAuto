@@ -1,16 +1,13 @@
-package tests;
+package tests.profilePageTests;
 
 import core.InitialDriver;
 import elements.Buttons;
 import elements.Elements;
 import enums.Credentials;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
+import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
-import pages.Profile;
+import pages.profile.Profile;
 import pages.SomeScreen;
 
 public class SettingsPageTests {
@@ -19,14 +16,14 @@ public class SettingsPageTests {
     Profile profile = new Profile(InitialDriver.getDriver());
     Buttons buttons = new Buttons();
 
-    @BeforeTest
+    @BeforeMethod
     public void setCap() {
         someScreen.logIn(Credentials.EMAIL.getType(), Credentials.PASS.getType());
     }
 
     @Test
     public void languageMenuTest() {
-        SoftAssert softAssertion= new SoftAssert();
+        SoftAssert softAssertion = new SoftAssert();
         profile.openSettings();
         profile.clickDropButtonLanguage();
         softAssertion.assertEquals(profile.checkRusLang(), "Русский");
@@ -50,7 +47,7 @@ public class SettingsPageTests {
         profile.clickBackButton();
     }
 
-    @AfterTest
+    @AfterMethod
     public void logOut() {
         someScreen.logOut();
     }

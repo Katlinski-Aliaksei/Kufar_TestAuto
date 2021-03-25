@@ -1,8 +1,9 @@
-package pages;
+package pages.profile;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
+import pages.BasePage;
 
 public class Profile extends BasePage {
 
@@ -100,5 +101,9 @@ public class Profile extends BasePage {
 
     public void clickBackButton() {
         buttons.searchAndClickButtonBy(BACK_BUTTON);
+    }
+
+    public void clickMenuProfileButton() {
+        buttons.searchAndClickButtonBy(MENU_PROFILE);
     }
 }

@@ -1,10 +1,8 @@
 package enums;
 
-import configs.PropertiesConfig;
-
 public enum Devices {
     REALME6PRO("REALME6PRO"),
-    XIAOMI("XIAOMI");
+    REDMINOTE8("REDMINOTE8");
 
     private final String device;
 
