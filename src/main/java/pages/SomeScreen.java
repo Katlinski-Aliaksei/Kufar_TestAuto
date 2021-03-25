@@ -5,8 +5,6 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
 public class SomeScreen extends BasePage {
-//    @AndroidFindBy(id = "se.scmv.belarus:id/menu_profile")
-//    private WebElement PROFILE_BUTTON;
     @AndroidFindBy(id = "se.scmv.belarus:id/login")
     private WebElement LOGIN_BUTTON;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ImageView")
@@ -59,7 +57,7 @@ public class SomeScreen extends BasePage {
 
     private void goToLoginProcess() {
         buttons.searchAndClickButtonBy(MENU_PROFILE);
-//        buttons.searchAndClickButtonBy(PROFILE_BUTTON);
+        buttons.searchAndClickButtonBy(MENU_PROFILE);
         buttons.searchAndClickButtonBy(LOGIN_BUTTON);
     }
 }
