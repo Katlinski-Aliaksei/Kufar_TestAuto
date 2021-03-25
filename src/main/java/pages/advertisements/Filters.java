@@ -9,6 +9,8 @@ public class Filters extends BasePage {
 
     @AndroidFindBy(id = "se.scmv.belarus:id/search")
     private WebElement SEARCH_FIELD;
+    @AndroidFindBy(id = "se.scmv.belarus:id/menu_filters")
+    private WebElement MENU_FILTERS;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget" +
             ".FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget" +
             ".LinearLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget" +
@@ -34,7 +36,7 @@ public class Filters extends BasePage {
             ".FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget" +
             ".LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget" +
             ".ViewAnimator/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[3]/android.widget.TextView")
-    private WebElement NAME_OF_SECTION;
+    private WebElement TYPE_OF_SECTION;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget" +
             ".FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget" +
             ".LinearLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget" +
@@ -48,18 +50,8 @@ public class Filters extends BasePage {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget" +
             ".FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget" +
             ".LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.recyclerview.widget" +
-            ".RecyclerView/android.widget.FrameLayout[2]/android.widget.TextView")
-    private WebElement NAME_OF_FIRST_VARIANT_REGION;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget" +
-            ".FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget" +
-            ".LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.recyclerview.widget" +
             ".RecyclerView/android.widget.FrameLayout[2]")
     private WebElement FIRST_VARIANT_OF_AREA;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget" +
-            ".FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget" +
-            ".LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.recyclerview.widget" +
-            ".RecyclerView/android.widget.FrameLayout[2]/android.widget.TextView")
-    private WebElement NAME_OF_FIRST_VARIANT_AREA;
     @AndroidFindBy(id = "se.scmv.belarus:id/filter_menu_apply")
     private WebElement FILTER_MENU_APPLY_BUTTON;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget" +
@@ -72,8 +64,86 @@ public class Filters extends BasePage {
     @AndroidFindBy(id = "se.scmv.belarus:id/inputTo")
     private WebElement PRICE_TO;
     @AndroidFindBy(id = "se.scmv.belarus:id/apply")
-    private WebElement APPLY_PRICE_BUTTON;
+    private WebElement APPLY_BUTTON;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget" +
+            ".FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget" +
+            ".LinearLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget" +
+            ".FrameLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[5]")
+    private WebElement COUNT_OF_ROOMS_SELECT;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget" +
+            ".FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget" +
+            ".FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget" +
+            ".FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]")
+    private WebElement FIRST_VARIANT_OF_COUNT_ROOMS;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget" +
+            ".FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget" +
+            ".FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget" +
+            ".FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget" +
+            ".LinearLayout[2]/android.widget.TextView")
+    private WebElement COUNT_OF_ROOMS_TEXT;
+    @AndroidFindBy(id = "se.scmv.belarus:id/showAdverts")
+    private WebElement SHOW_ADVERTS_BUTTON;
+
     public Filters(AndroidDriver driver) {
         super(driver);
+    }
+
+    public void goToAdvertisements() {
+        buttons.searchAndClickButtonBy(MENU_LISTING);
+    }
+
+    public void goToFiltersMenu() {
+        buttons.searchAndClickButtonBy(MENU_FILTERS);
+    }
+
+    public void goToMenuProfile() {
+        buttons.searchAndClickButtonBy(MENU_PROFILE);
+    }
+
+    public void chooseApartmentCategory() {
+        buttons.searchAndClickButtonBy(CATEGORIES_LIST);
+        buttons.searchAndClickButtonBy(IMMOVABILITY_CATEGORY);
+    }
+
+    public String getTypeOfSection() {
+        return elements.getTextFromElement(TYPE_OF_SECTION);
+    }
+
+    public void chooseRegion() {
+        buttons.searchAndClickButtonBy(APARTMENT_SECTION);
+        buttons.searchAndClickButtonBy(REGION_FIELD);
+    }
+
+    public void chooseAreaOfApartment() {
+        buttons.searchAndClickButtonBy(FIRST_VARIANT_OF_REGIONS);
+        buttons.searchAndClickButtonBy(FIRST_VARIANT_OF_AREA);
+    }
+
+    public void applyFiltersForRegion() {
+        buttons.searchAndClickButtonBy(FILTER_MENU_APPLY_BUTTON);
+    }
+
+    public void inputPriceFromTo(String priceFrom, String priceTo) {
+        buttons.searchAndClickButtonBy(PRICE_FIELD);
+        elements.searchFieldAndSendKey(PRICE_FROM, priceFrom);
+        elements.searchFieldAndSendKey(PRICE_TO, priceTo);
+        clickOnApply();
+    }
+
+    public void chooseCountOfRooms() {
+        buttons.searchAndClickButtonBy(COUNT_OF_ROOMS_SELECT);
+        buttons.searchAndClickButtonBy(FIRST_VARIANT_OF_COUNT_ROOMS);
+    }
+
+    public String getCountOfRooms() {
+        return elements.getTextFromElement(COUNT_OF_ROOMS_TEXT);
+    }
+
+    public void clickOnApply() {
+        buttons.searchAndClickButtonBy(APPLY_BUTTON);
+    }
+
+    public void showAdvertsAfterFilters() {
+        buttons.searchAndClickButtonBy(SHOW_ADVERTS_BUTTON);
     }
 }
