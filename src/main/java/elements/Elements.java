@@ -32,7 +32,7 @@ public class Elements {
 
     public boolean isVisibleElement(WebElement webElement) {
         try {
-            new WebDriverWait(driver, 10)
+            new WebDriverWait(driver, 15)
                     .until(ExpectedConditions.visibilityOf(webElement));
             log.info("Checking Element");
             return true;

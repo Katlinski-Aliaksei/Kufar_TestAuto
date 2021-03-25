@@ -1,4 +1,4 @@
-package tests;
+package tests.profilePageTests;
 
 import core.InitialDriver;
 import elements.Elements;
@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pages.Profile;
+import pages.profile.Profile;
 import pages.SomeScreen;
 
 
@@ -43,7 +43,6 @@ public class ProfilePageTests {
 
     @AfterTest
     public void logOut() {
-
         someScreen.logOut();
     }
 }
