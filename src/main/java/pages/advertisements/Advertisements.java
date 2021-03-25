@@ -40,4 +40,8 @@ public class Advertisements extends BasePage {
     public void goToFavorites() {
         buttons.searchAndClickButtonBy(MENU_FAVORITES);
     }
+
+    public void goToFiltersMenu() {
+        buttons.searchAndClickButtonBy(MENU_FILTERS);
+    }
 }

@@ -27,6 +27,12 @@ public class Advert extends BasePage {
     private WebElement FOLLOW_BUTTON;
     @AndroidFindBy(accessibility = "Перейти вверх")
     private WebElement BACK_BUTTON;
+    @AndroidFindBy(id = "se.scmv.belarus:id/priceUsd")
+    private WebElement PRICE_USD;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Количество комнат']/following-sibling::android.widget.TextView")
+    private WebElement COUNT_OF_ROOMS;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Категория']/following-sibling::android.widget.TextView")
+    private WebElement NAME_OF_CATEGORY;
 
     public Advert(AndroidDriver driver) {
         super(driver);
@@ -59,7 +65,27 @@ public class Advert extends BasePage {
         buttons.searchAndClickButtonBy(FOLLOW_BUTTON);
     }
 
+    private String getPriceUSDInStringFormat() {
+        String priceString = elements.getTextFromElement(PRICE_USD);
+        return elements.getTextFromElement(PRICE_USD);
+    }
+
+    public int getPriceUSD() {
+        return Integer.parseInt(parsePriceUSD(getPriceUSDInStringFormat()));
+    }
+    private String parsePriceUSD(String priceString) {
+        return priceString.substring(0, priceString.length() - 2).replaceAll("\\s","");
+    }
+
     public void goBack() {
         buttons.searchAndClickButtonBy(BACK_BUTTON);
+    }
+
+    public String getCountOfRoomsFromAdvert() {
+        return elements.getTextFromElement(COUNT_OF_ROOMS);
+    }
+
+    public String getNameOfCategoryFromAdvert() {
+        return elements.getTextFromElement(NAME_OF_CATEGORY);
     }
 }
