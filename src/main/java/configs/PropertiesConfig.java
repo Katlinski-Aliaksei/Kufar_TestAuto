@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class PropertiesConfig {
-    protected static FileInputStream fileInputStream;
     protected static Properties PROPERTIES;
 
     static {

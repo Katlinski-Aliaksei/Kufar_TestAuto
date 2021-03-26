@@ -10,19 +10,11 @@ public class Advertisements extends BasePage {
     private WebElement ADS;
     @AndroidFindBy(id = "se.scmv.belarus:id/filtersButton")
     private WebElement FILTERS_BUTTON;
-    @AndroidFindBy(id = "se.scmv.belarus:id/menu_filters")
+    @AndroidFindBy(id = "se.scmv.belarus:id/searchFiltersButton")
     private WebElement MENU_FILTERS;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget" +
-            ".FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget" +
-            ".FrameLayout[1]/android.widget.ViewAnimator/android.view.ViewGroup/android.view.ViewGroup/android.widget" +
-            ".ViewAnimator/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[1]/android.view" +
-            ".ViewGroup/android.widget.FrameLayout/android.widget.CheckBox")
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.FrameLayout/android.widget.CheckBox")
     private WebElement LIKE_OF_FIRST_ELEMENT;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget" +
-            ".FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget" +
-            ".LinearLayout/android.widget.FrameLayout[1]/android.widget.ViewAnimator/android.view" +
-            ".ViewGroup/android.view.ViewGroup/android.widget.ViewAnimator/androidx.recyclerview.widget" +
-            ".RecyclerView/android.widget.FrameLayout[1]/android.view.ViewGroup")
+    @AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[1]/android.view.ViewGroup")
     private WebElement FIRST_ELEMENT_OF_ADS;
 
     public Advertisements(AndroidDriver driver) {
