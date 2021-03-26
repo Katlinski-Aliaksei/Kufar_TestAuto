@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Before;
 import org.testng.Assert;
 import org.testng.annotations.*;
-import pages.Profile;
+//import pages.Profile;
 import pages.SomeScreen;
 import pages.advertisements.Advert;
 import pages.advertisements.Advertisements;

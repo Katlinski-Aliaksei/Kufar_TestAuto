@@ -13,7 +13,7 @@ public class Buttons {
     private AndroidDriver driver = InitialDriver.getDriver();
 
     public void searchAndClickButtonBy(WebElement webElement) {
-        WebElement searchButton = new WebDriverWait(driver, 10)
+        WebElement searchButton = new WebDriverWait(driver, 15)
                 .until(ExpectedConditions.elementToBeClickable(webElement));
         searchButton.click();
 
