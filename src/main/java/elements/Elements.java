@@ -41,6 +41,17 @@ public class Elements {
         }
     }
 
+    public boolean isNotVisibleElement(WebElement webElement) {
+        try {
+            new WebDriverWait(driver, 3)
+                    .until(ExpectedConditions.visibilityOf(webElement));
+            log.info("Checking Element");
+            return true;
+        } catch (Exception ElementNotVisible) {
+            return false;
+        }
+    }
+
     public void searchFieldAndSendKey(WebElement webElement, String key) {
         WebElement searchField = new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.elementToBeClickable(webElement));
