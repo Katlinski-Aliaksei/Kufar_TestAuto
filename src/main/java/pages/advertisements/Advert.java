@@ -1,8 +1,5 @@
 package pages.advertisements;
 
-import elements.Buttons;
-import elements.Elements;
-import elements.Screen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
@@ -65,16 +62,13 @@ public class Advert extends BasePage {
         buttons.searchAndClickButtonBy(FOLLOW_BUTTON);
     }
 
-    private String getPriceUSDInStringFormat() {
-        String priceString = elements.getTextFromElement(PRICE_USD);
-        return elements.getTextFromElement(PRICE_USD);
-    }
-
     public int getPriceUSD() {
         return Integer.parseInt(parsePriceUSD(getPriceUSDInStringFormat()));
     }
-    private String parsePriceUSD(String priceString) {
-        return priceString.substring(0, priceString.length() - 2).replaceAll("\\s","");
+
+    private String getPriceUSDInStringFormat() {
+        screen.scrollablePage("$");
+        return elements.getTextFromElement(PRICE_USD);
     }
 
     public void goBack() {
@@ -82,10 +76,16 @@ public class Advert extends BasePage {
     }
 
     public String getCountOfRoomsFromAdvert() {
+        screen.scrollablePage("Количество комнат");
         return elements.getTextFromElement(COUNT_OF_ROOMS);
     }
 
     public String getNameOfCategoryFromAdvert() {
+        screen.scrollablePage("Категория");
         return elements.getTextFromElement(NAME_OF_CATEGORY);
+    }
+
+    private String parsePriceUSD(String priceString) {
+        return priceString.substring(0, priceString.length() - 2).replaceAll("\\s","");
     }
 }

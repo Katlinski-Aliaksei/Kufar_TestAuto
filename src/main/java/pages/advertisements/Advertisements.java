@@ -10,7 +10,7 @@ public class Advertisements extends BasePage {
     private WebElement ADS;
     @AndroidFindBy(id = "se.scmv.belarus:id/filtersButton")
     private WebElement FILTERS_BUTTON;
-    @AndroidFindBy(id = "se.scmv.belarus:id/menu_filters")
+    @AndroidFindBy(id = "se.scmv.belarus:id/searchFiltersButton")
     private WebElement MENU_FILTERS;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget" +
             ".FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget" +
