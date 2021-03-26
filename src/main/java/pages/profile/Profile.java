@@ -7,35 +7,27 @@ import pages.BasePage;
 
 public class Profile extends BasePage {
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[3]/android.widget.TextView")
+    @AndroidFindBy(xpath = "/hierarchy//android.widget.LinearLayout[3]/android.widget.TextView")
     private WebElement AD;
-    //Мои заказы
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[4]/android.widget.TextView")
+    @AndroidFindBy(xpath = "/hierarchy//android.widget.LinearLayout[4]/android.widget.TextView")
     private WebElement ORDERS;
-    //Уведомления
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[5]/android.widget.TextView")
-    private WebElement NOTIFICATION;
-    //Пакеты обновлений
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[6]/android.widget.TextView")
-    private WebElement UPDATE_PACKAGE;
-    //Настройки
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[8]/android.widget.TextView")
+    @AndroidFindBy(xpath = "/hierarchy//android.widget.LinearLayout[8]/android.widget.TextView")
     private WebElement SETTINGS;
 
     //Локаторы меню настройки
     @AndroidFindBy(id = "se.scmv.belarus:id/icon")
     private WebElement LANGUAGE_DROP_WINDOW;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.TextView")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout//android.widget.LinearLayout[1]/android.widget.TextView")
     private WebElement RUS_LANGUAGE;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.TextView")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout//android.widget.LinearLayout[2]/android.widget.TextView")
     private WebElement BEL_LANGUAGE;
     @AndroidFindBy(id = "se.scmv.belarus:id/close")
     private WebElement CLOSE_BUTTON;
     @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Перейти вверх\"]")
     private WebElement BACK_BUTTON;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.RadioButton")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout//android.widget.LinearLayout[1]/android.widget.RadioButton")
     private WebElement BEL_CHECKBOX;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.RadioButton")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout//android.widget.LinearLayout[2]/android.widget.RadioButton")
     private WebElement RUS_CHECKBOX;
 
     public Profile(AndroidDriver driver) {
