@@ -21,11 +21,7 @@ public class Favorites extends BasePage {
     private WebElement IS_FAVORITE;
     @AndroidFindBy(id = "se.scmv.belarus:id/name")
     private WebElement SELLER_NAME;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget" +
-            ".FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget" +
-            ".LinearLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.viewpager.widget" +
-            ".ViewPager/android.widget.ViewAnimator/android.view.ViewGroup/androidx.recyclerview.widget" +
-            ".RecyclerView/android.widget.FrameLayout/android.view.ViewGroup")
+    @AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup")
     private WebElement ADS_FAVORITE;
 
     public Favorites(AndroidDriver driver) {
@@ -34,7 +30,7 @@ public class Favorites extends BasePage {
 
     public void signInOrLogin() {
         try {
-            Thread.sleep(5000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -47,7 +43,7 @@ public class Favorites extends BasePage {
         buttons.searchAndClickButtonBy(IS_FAVORITE);
         screen.swipeFromUpToBottom();
 
-        return elements.isVisibleElement(ADS_FAVORITE);
+        return elements.isNotVisibleElement(ADS_FAVORITE);
     }
 
     public void goToFavorites() {

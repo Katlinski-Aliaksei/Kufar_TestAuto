@@ -16,11 +16,7 @@ public class Advert extends BasePage {
     private WebElement AD_ID;
     @AndroidFindBy(id = "se.scmv.belarus:id/userInfoContainer")
     private WebElement SELLER_INFO;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget" +
-            ".FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget" +
-            ".FrameLayout/android.widget.LinearLayout/android.widget.ViewAnimator/android.view" +
-            ".ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[1]/android.view" +
-            ".ViewGroup/android.widget.FrameLayout/android.widget.Button")
+    @AndroidFindBy(xpath = "//android.widget.Button[@text='Подписаться']")
     private WebElement FOLLOW_BUTTON;
     @AndroidFindBy(accessibility = "Перейти вверх")
     private WebElement BACK_BUTTON;
