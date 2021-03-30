@@ -2,6 +2,7 @@ package pages.profile;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import pages.BasePage;
 
@@ -33,43 +34,41 @@ public class Settings extends BasePage {
         super(driver);
     }
 
+    @Step("Search  and click My Pay Cards button ")
     public void clickMyPayCardsButton() {
         buttons.searchAndClickButtonBy(MY_PAY_CARDS);
     }
 
-    public void clickMyDataButton() {
-        buttons.searchAndClickButtonBy(MY_DATA);
-    }
-
-    public void clickKufarPaymentButton() {
-        buttons.searchAndClickButtonBy(KUFAR_PAYMENT);
-    }
-
+    @Step("Checking the visibility of Add New Card button")
     public boolean checkAddNewCardButton() {
         return elements.isVisibleElement(ADD_NEW_CARDS_BUTTON);
     }
-
 
     public void clickAddNewCardButton() {
         buttons.searchAndClickButtonBy(ADD_NEW_CARDS_BUTTON);
     }
 
+    @Step("Checking the visibility of Number Card field")
     public boolean checkNumberCardField() {
         return elements.isVisibleElement(NUMBER_CARD_FIELD);
     }
 
+    @Step("Checking the visibility of Owner Name field")
     public boolean checkOwnerNameField() {
         return elements.isVisibleElement(OWNER_NAME_FIELD);
     }
 
+    @Step("Checking the visibility of Validity Card field")
     public boolean checkValidityCardField() {
         return elements.isVisibleElement(VALIDITY_CARD_FIELD);
     }
 
+    @Step("Checking the visibility of CVC field")
     public boolean checkCvcField() {
         return elements.isVisibleElement(CVC_FIELD);
     }
 
+    @Step("Checking the visibility of Add Card button")
     public boolean checkAddCardButton() {
         return elements.isVisibleElement(ADD_CARD_BUTTON);
     }
