@@ -1,19 +1,18 @@
 package tests.profilePageTests;
 
 import core.InitialDriver;
-import elements.Elements;
 import enums.Credentials;
+import io.qameta.allure.Owner;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pages.profile.Profile;
 import pages.SomeScreen;
+import pages.profile.Profile;
 
 
 public class ProfilePageTests {
     SomeScreen someScreen = new SomeScreen(InitialDriver.getDriver());
-    Elements elements = new Elements();
     Profile profile = new Profile(InitialDriver.getDriver());
 
     @BeforeTest
@@ -22,23 +21,27 @@ public class ProfilePageTests {
     }
 
     @Test
+    @Owner("Katlinski Aliaksei")
     public void isVisibleADTest() {
         Assert.assertTrue(profile.visibleElementAD());
     }
 
     @Test
+    @Owner("Katlinski Aliaksei")
     public void haveTextADTest() {
         Assert.assertEquals(profile.haveTextAD(), "Мои объявления");
     }
 
     @Test
+    @Owner("Katlinski Aliaksei")
     public void isVisibleSettingsTest() {
         Assert.assertTrue(profile.visibleElementSettings());
     }
 
     @Test
+    @Owner("Katlinski Aliaksei")
     public void haveTextSettingTest() {
-        Assert.assertEquals(profile.haveTextSettings(),"Настройки");
+        Assert.assertEquals(profile.haveTextSettings(), "Настройки");
     }
 
     @AfterTest

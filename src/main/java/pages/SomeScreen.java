@@ -2,6 +2,7 @@ package pages;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 
 public class SomeScreen extends BasePage {
@@ -24,6 +25,7 @@ public class SomeScreen extends BasePage {
         super(driver);
     }
 
+    @Step("logIn your account")
     public void logIn(String email, String password) {
         goToLoginProcess();
         compelledLogIn();
@@ -31,6 +33,7 @@ public class SomeScreen extends BasePage {
         goToMyData();
     }
 
+    @Step("logOut your account")
     public void logOut() {
         buttons.searchAndClickButtonBy(MENU_PROFILE);
         buttons.searchAndClickButtonBy(AVATAR_BUTTON);
@@ -38,21 +41,25 @@ public class SomeScreen extends BasePage {
         buttons.searchAndClickButtonBy(LOGOUT_BUTTON);
     }
 
+    @Step("Search  and click  cancel button after login")
     public void compelledLogIn() {
         buttons.searchAndClickButtonBy(CANCEL_BUTTON);
     }
 
+    @Step("Set credentials and click LogIn button")
     public void enterCredentialsAndLogin(String email, String password) {
         elements.searchFieldAndSendKey(EMAIL_PATH, email);
         elements.searchFieldAndSendKey(PASSWORD_PATH, password);
         buttons.searchAndClickButtonBy(LOGIN_BUTTON);
     }
 
+    @Step("Enter to My Data menu")
     private void goToMyData() {
         buttons.searchAndClickButtonBy(AVATAR_BUTTON);
         buttons.searchAndClickButtonBy(BACK_BUTTON_PROFILE);
     }
 
+    @Step("Go to LogIn process")
     private void goToLoginProcess() {
         buttons.searchAndClickButtonBy(MENU_PROFILE);
         buttons.searchAndClickButtonBy(MENU_PROFILE);

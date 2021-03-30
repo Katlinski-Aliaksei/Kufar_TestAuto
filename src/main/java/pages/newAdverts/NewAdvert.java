@@ -1,13 +1,14 @@
-package pages.advert;
+package pages.newAdverts;
 
 import core.InitialDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import pages.BasePage;
 import pages.profile.Profile;
 
-public class Advert extends BasePage {
+public class NewAdvert extends BasePage {
 
     Profile profile = new Profile(InitialDriver.getDriver());
     @AndroidFindBy(id = "se.scmv.belarus:id/edittext")
@@ -32,8 +33,6 @@ public class Advert extends BasePage {
     private WebElement DIAGONAL;
     @AndroidFindBy(xpath = "/hierarchy//android.widget.LinearLayout[3]/android.view.ViewGroup/android.widget.CompoundButton[3]")
     private WebElement MEMORY_32;
-    @AndroidFindBy(xpath = "/hierarchy//android.widget.LinearLayout[6]/android.view.ViewGroup/android.widget.CheckBox")
-    private WebElement SLOT_MEMORY_CARD;
     @AndroidFindBy(xpath = "//android.widget.CompoundButton[contains(@text, 'Б/у')]")
     private WebElement USED_BUTTON;
     @AndroidFindBy(xpath = "//android.widget.EditText[contains(@text, 'Цена')]")
@@ -60,80 +59,90 @@ public class Advert extends BasePage {
     @AndroidFindBy(xpath = "/hierarchy//android.widget.LinearLayout[1]/android.widget.LinearLayout")
     private WebElement ACTIVE_BUTTON;
 
-    public Advert(AndroidDriver driver) {
+    public NewAdvert(AndroidDriver driver) {
         super(driver);
     }
 
+    @Step("Search  and click  Add Advert button")
     public void clickAddAdvert() {
         buttons.searchAndClickButtonBy(ADD_ADVERT);
     }
 
+    @Step("Set Title for advert")
     public void setTitle(String title) {
         elements.searchFieldAndSendKey(TITLE, title);
     }
 
+    @Step("Set Categories for advert")
     public void setCategories(WebElement highElement, WebElement lowElement) {
         buttons.searchAndClickButtonBy(CATEGORIES);
         buttons.searchAndClickButtonBy(highElement);
         buttons.searchAndClickButtonBy(lowElement);
     }
 
+    @Step("Set Manufacturer for advert")
     public void setManufacturer(WebElement manufacturer) {
         buttons.searchAndClickButtonBy(MANUFACTURER_DROPDOWN_BUTTON);
         buttons.searchAndClickButtonBy(manufacturer);
     }
 
+    @Step("Set Model Phone for advert")
     public void setModelPhone(WebElement modelPhone) {
         buttons.searchAndClickButtonBy(MODEL_DROPDOWN_BUTTON);
         buttons.searchAndClickButtonBy(modelPhone);
     }
 
+    @Step("Search  and click  Android button")
     public void clickAndroidButton() {
         buttons.searchAndClickButtonBy(ANDROID_BUTTON);
     }
 
+    @Step("Set Diagonal for advert")
     public void setDiagonal() {
         screen.scrollablePage("Поддержка NFC");
         buttons.searchAndClickButtonBy(DIAGONAL);
     }
 
+    @Step("Set Memory for advert")
     public void setMemory() {
         buttons.searchAndClickButtonBy(MEMORY_32);
     }
 
-    public void setMemoryCard() {
-        buttons.searchAndClickButtonBy(SLOT_MEMORY_CARD);
-    }
-
+    @Step("Set Condition")
     public void clickConditionButton(WebElement condition) {
         screen.scrollablePage("Возможен обмен");
         buttons.searchAndClickButtonBy(condition);
     }
 
+    @Step("Set Description for advert")
     public void setDescription(String description) {
         elements.searchFieldAndSendKey(DESCRIPTION_FIELD, description);
     }
 
+    @Step("Set Price for advert")
     public void setPrice(String price) {
         elements.searchFieldAndSendKey(PRICE_FIELD, price);
-        //screen.swipeFromUpToBottom();
     }
 
+    @Step("Search  and click  Add Advert Finish button")
     public void clickFinishButtonAddAdvert() {
         screen.scrollablePage("Подать объявление");
         buttons.searchAndClickButtonBy(FINISH_BUTTON_ADD_ADVERT);
     }
 
+    @Step("Checking the visibility of Huawei advert in moderation")
     public boolean checkHuaweiAdvertInModeration() {
         buttons.searchAndClickButtonBy(MODERATION_BUTTON);
         return elements.isVisibleElement(HUAWEI_ADVERT_TITLE);
     }
 
+    @Step("Checking the visibility of Huawei advert is Active")
     public boolean checkHuaweiAdvertIsActive() {
         buttons.searchAndClickButtonBy(ACTIVE_BUTTON);
         return elements.isVisibleElement(HUAWEI_ADVERT_TITLE);
     }
 
+    @Step("Create new advert Huawei phone for sale")
     public void addNewAdvertHuaweiPhoneForSale() {
         clickAddAdvert();
         setTitle("Huawei");
@@ -143,7 +152,6 @@ public class Advert extends BasePage {
         clickAndroidButton();
         setDiagonal();
         setMemory();
-        setMemoryCard();
         clickConditionButton(USED_BUTTON);
         setDescription("Телефон в хорошем состоянии. Все вопросы в лс.");
         setPrice("200");
