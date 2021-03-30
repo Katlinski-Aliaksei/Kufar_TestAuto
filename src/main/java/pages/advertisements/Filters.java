@@ -3,6 +3,7 @@ package pages.advertisements;
 import enums.Direction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import pages.BasePage;
 
@@ -48,37 +49,45 @@ public class Filters extends BasePage {
         super(driver);
     }
 
+    @Step("Go to advertisements list")
     public void goToAdvertisements() {
         buttons.searchAndClickButtonBy(MENU_LISTING);
     }
 
+    @Step("Go to filters menu")
     public void goToFiltersMenu() {
         buttons.searchAndClickButtonBy(FILTERS_BUTTON);
     }
 
+    @Step("Go to menu profile")
     public void goToMenuProfile() {
         buttons.searchAndClickButtonBy(MENU_PROFILE);
     }
 
+    @Step("Close filters")
     public void closeFilters() {
         buttons.searchAndClickButtonBy(CLOSE_BUTTON);
     }
 
+    @Step("Save search to favorite")
     public void saveSearch() {
         screen.scrollablePage("Cохранить поиск");
         screen.swipe(Direction.UP);
         buttons.searchAndClickButtonBy(SAVE_SEARCH_BUTTON);
     }
 
-    public void chooseApartmentCategory() {
+    @Step("Choose immovability category")
+    public void chooseImmovabilityCategory() {
         buttons.searchAndClickButtonBy(CATEGORIES_LIST);
         buttons.searchAndClickButtonBy(IMMOVABILITY_CATEGORY);
     }
 
+    @Step("Get type of section")
     public String getTypeOfSection() {
         return elements.getTextFromElement(TYPE_OF_SECTION);
     }
 
+    @Step("Input price in style \"From\" - \"To\"")
     public void inputPriceFromTo(String priceFrom, String priceTo) {
         buttons.searchAndClickButtonBy(PRICE_FIELD);
         elements.searchFieldAndSendKey(PRICE_FROM, priceFrom);
@@ -86,27 +95,33 @@ public class Filters extends BasePage {
         clickOnApply();
     }
 
+    @Step("Choose apartment section")
     public void chooseApartmentSection() {
         buttons.searchAndClickButtonBy(APARTMENT_SECTION);
     }
 
+    @Step("Choose count rooms of apartment")
     public void chooseCountOfRooms() {
         buttons.searchAndClickButtonBy(COUNT_OF_ROOMS_SELECT);
         buttons.searchAndClickButtonBy(FIRST_VARIANT_OF_COUNT_ROOMS);
     }
 
+    @Step("Get count rooms of apartments")
     public String getCountOfRooms() {
         return elements.getTextFromElement(COUNT_OF_ROOMS_TEXT);
     }
 
+    @Step("Click on apply button")
     public void clickOnApply() {
         buttons.searchAndClickButtonBy(APPLY_BUTTON);
     }
 
+    @Step("Show adverts after filters application")
     public void showAdvertsAfterFilters() {
         buttons.searchAndClickButtonBy(SHOW_ADVERTS_BUTTON);
     }
 
+    @Step("Go to results after filters application")
     public void goToListingViewResults() {
         buttons.searchAndClickButtonBy(LISTING_VIEW_BUTTON);
     }
