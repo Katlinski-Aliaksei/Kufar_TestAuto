@@ -98,4 +98,10 @@ public class Profile extends BasePage {
     public void clickMenuProfileButton() {
         buttons.searchAndClickButtonBy(MENU_PROFILE);
     }
+
+    public void clickMyAdvertsMenu() {
+        buttons.searchAndClickButtonBy(AD);
+    }
+
+
 }
