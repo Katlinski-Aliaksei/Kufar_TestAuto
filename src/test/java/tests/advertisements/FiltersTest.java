@@ -59,6 +59,7 @@ public class FiltersTest {
         filters.goToFiltersMenu();
         filters.chooseApartmentCategory();
         expectedTypeOfSection = filters.getTypeOfSection();
+        filters.chooseApartmentSection();
     }
 
     private void chooseCountOfRooms() {
