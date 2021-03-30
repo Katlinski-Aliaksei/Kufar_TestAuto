@@ -11,7 +11,7 @@ import pages.SomeScreen;
 import pages.advertisements.Advert;
 import pages.advertisements.Advertisements;
 
-public class FavoritesTest {
+public class FavoritesAdsTest {
     Favorites favorites = new Favorites(InitialDriver.getDriver());
     Advertisements advertisements = new Advertisements(InitialDriver.getDriver());
     Advert advert = new Advert(InitialDriver.getDriver());
@@ -37,9 +37,9 @@ public class FavoritesTest {
         Assert.assertEquals(expectedAdTitle, actualAdTitle);
     }
 
-    @Test
+    @Test(dependsOnMethods = "When_AdvertAddToFavorites_Then_TheirTitlesEquals")
     public void When_UserUnlikedAdvertisement_Then_AdsRemoved() {
-        Assert.assertFalse(favorites.isTakeAwayAdsFromFavorites());
+        Assert.assertTrue(favorites.isNotVisibleAdsInFavorites());
     }
 
     @AfterTest

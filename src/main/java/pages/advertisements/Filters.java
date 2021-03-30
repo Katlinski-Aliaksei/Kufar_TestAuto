@@ -1,5 +1,6 @@
 package pages.advertisements;
 
+import enums.Direction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
@@ -38,6 +39,10 @@ public class Filters extends BasePage {
     private WebElement SHOW_ADVERTS_BUTTON;
     @AndroidFindBy(id = "se.scmv.belarus:id/listingButton")
     private WebElement LISTING_VIEW_BUTTON;
+    @AndroidFindBy(id = "se.scmv.belarus:id/button")
+    private WebElement SAVE_SEARCH_BUTTON;
+    @AndroidFindBy(id = "se.scmv.belarus:id/close")
+    private WebElement CLOSE_BUTTON;
 
     public Filters(AndroidDriver driver) {
         super(driver);
@@ -55,6 +60,16 @@ public class Filters extends BasePage {
         buttons.searchAndClickButtonBy(MENU_PROFILE);
     }
 
+    public void closeFilters() {
+        buttons.searchAndClickButtonBy(CLOSE_BUTTON);
+    }
+
+    public void saveSearch() {
+        screen.scrollablePage("Cохранить поиск");
+        screen.swipe(Direction.UP);
+        buttons.searchAndClickButtonBy(SAVE_SEARCH_BUTTON);
+    }
+
     public void chooseApartmentCategory() {
         buttons.searchAndClickButtonBy(CATEGORIES_LIST);
         buttons.searchAndClickButtonBy(IMMOVABILITY_CATEGORY);
@@ -65,11 +80,14 @@ public class Filters extends BasePage {
     }
 
     public void inputPriceFromTo(String priceFrom, String priceTo) {
-        buttons.searchAndClickButtonBy(APARTMENT_SECTION);
         buttons.searchAndClickButtonBy(PRICE_FIELD);
         elements.searchFieldAndSendKey(PRICE_FROM, priceFrom);
         elements.searchFieldAndSendKey(PRICE_TO, priceTo);
         clickOnApply();
+    }
+
+    public void chooseApartmentSection() {
+        buttons.searchAndClickButtonBy(APARTMENT_SECTION);
     }
 
     public void chooseCountOfRooms() {

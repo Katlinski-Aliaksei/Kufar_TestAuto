@@ -3,7 +3,6 @@ package elements;
 import core.InitialDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -46,9 +45,9 @@ public class Elements {
             new WebDriverWait(driver, 3)
                     .until(ExpectedConditions.visibilityOf(webElement));
             log.info("Checking Element");
-            return true;
-        } catch (Exception ElementNotVisible) {
             return false;
+        } catch (Exception ElementNotVisible) {
+            return true;
         }
     }
 
