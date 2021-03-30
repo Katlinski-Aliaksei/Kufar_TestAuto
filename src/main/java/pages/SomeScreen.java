@@ -11,7 +11,7 @@ public class SomeScreen extends BasePage {
     private WebElement CANCEL_BUTTON;//кнопка "ничего из перечисленного" всплывающее окно
     @AndroidFindBy(id = "se.scmv.belarus:id/avatar")
     private WebElement AVATAR_BUTTON;
-    @AndroidFindBy(xpath = "/hierarchy//android.widget.FrameLayout[5]/android.widget.TextView")
+    @AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[3]")
     private WebElement LOGOUT_BUTTON;
     @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Перейти вверх\"]")
     private WebElement BACK_BUTTON_PROFILE;
