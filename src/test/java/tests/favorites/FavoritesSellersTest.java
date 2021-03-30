@@ -11,11 +11,11 @@ import pages.advertisements.Advert;
 import pages.advertisements.Advertisements;
 import pages.favorites.Favorites;
 
-public class FavoritesAdsTest {
+public class FavoritesSellersTest {
     Favorites favorites = new Favorites(InitialDriver.getDriver());
-    Advertisements advertisements = new Advertisements(InitialDriver.getDriver());
-    Advert advert = new Advert(InitialDriver.getDriver());
     SomeScreen someScreen = new SomeScreen(InitialDriver.getDriver());
+    Advert advert = new Advert(InitialDriver.getDriver());
+    Advertisements advertisements = new Advertisements(InitialDriver.getDriver());
 
     @BeforeTest
     public void logIn() {
@@ -25,22 +25,25 @@ public class FavoritesAdsTest {
     }
 
     @Test
-    public void When_AdvertAddToFavorites_Then_TheirTitlesEquals() {
+    public void followingOnSeller() {
         advertisements.goToAdvertisements();
         advertisements.goToFirstAdvert();
-        advert.addAdToFavorites();
-        String expectedAdTitle = advert.getAdTitle();
+        advert.goToSellerInfo();
+        String expectedNameOfSeller = advert.getNameOfSeller();
+        advert.followOnSeller();
         advert.goBack();
         advertisements.goToFavorites();
-        favorites.chooseAdsSection();
-        String actualAdTitle = favorites.getAdTitleInFavorite();
+        favorites.chooseSellersSection();
 
-        Assert.assertEquals(expectedAdTitle, actualAdTitle);
+        String actualNameOfSeller = favorites.getNameOfSeller();
+        Assert.assertEquals(expectedNameOfSeller, actualNameOfSeller);
     }
 
-    @Test(dependsOnMethods = "When_AdvertAddToFavorites_Then_TheirTitlesEquals")
-    public void When_UserUnlikedAdvertisement_Then_AdsRemoved() {
-        Assert.assertTrue(favorites.isNotVisibleAdsInFavorites());
+    @Test
+    public void unfollowFromSeller() {
+        favorites.unfollowOfSeller();
+
+        Assert.assertTrue(favorites.isNotVisibleSellerInFavorites());
     }
 
     @AfterTest

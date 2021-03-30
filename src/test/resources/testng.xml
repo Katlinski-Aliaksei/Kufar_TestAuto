@@ -1,6 +1,29 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Suite1" verbose="1">
+    <test name="FavoritesSearchTest">
+        <classes>
+            <class name="tests.favorites.FavoritesSearchTest"/>
+        </classes>
+    </test>
+
+    <test name="FavoritesSellersTest">
+        <classes>
+            <class name="tests.favorites.FavoritesSellersTest"/>
+        </classes>
+    </test>
+
+    <test name="FavoritesAdsTest">
+        <classes>
+            <class name="tests.favorites.FavoritesAdsTest"/>
+        </classes>
+    </test>
+
+    <test name="FiltersTest">
+        <classes>
+            <class name="tests.advertisements.FiltersTest"/>
+        </classes>
+    </test>
 
     <test name="ProfilePageTests">
         <classes>
