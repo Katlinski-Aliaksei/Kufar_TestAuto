@@ -1,5 +1,6 @@
 package pages;
 
+import enums.Direction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
@@ -23,6 +24,12 @@ public class Favorites extends BasePage {
     private WebElement SELLER_NAME;
     @AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup")
     private WebElement ADS_FAVORITE;
+    @AndroidFindBy(id = "se.scmv.belarus:id/delete")
+    private WebElement DELETE_ADVERT_FROM_FAVORITE_ADS;
+    @AndroidFindBy(id = "se.scmv.belarus:id/title")
+    private WebElement NAME_TITLE_OF_FAVORITE_SEARCH;
+    @AndroidFindBy(id = "android:id/button1")
+    private WebElement CONFIRM_DELETE;
 
     public Favorites(AndroidDriver driver) {
         super(driver);
@@ -38,10 +45,10 @@ public class Favorites extends BasePage {
         buttons.searchAndClickButtonBy(SIGN_IN_OR_LOGIN);
     }
 
-    public boolean isTakeAwayAdsFromFavorites() {
+    public boolean isNotVisibleAdsInFavorites() {
         goToFavorites();
         buttons.searchAndClickButtonBy(IS_FAVORITE);
-        screen.swipeFromUpToBottom();
+        screen.swipe(Direction.DOWN);
 
         return elements.isNotVisibleElement(ADS_FAVORITE);
     }
@@ -54,15 +61,30 @@ public class Favorites extends BasePage {
         return elements.getTextFromElement(TITLE_FAVORITE_SEARCH);
     }
 
-    private void chooseAdsSection() {
+    public void chooseAdsSection() {
         buttons.searchAndClickButtonBy(ADVERTISEMENT);
     }
 
-    private void chooseSearchSection() {
+    public void chooseSearchSection() {
         buttons.searchAndClickButtonBy(SEARCH_FAVORITES);
+        screen.swipe(Direction.DOWN);
+
     }
 
-    private void chooseSellersSection() {
+    public String getNameOfFavoriteSearch() {
+        return elements.getTextFromElement(NAME_TITLE_OF_FAVORITE_SEARCH);
+    }
+
+    public void deleteAdvertFromFavoriteAds() {
+        buttons.searchAndClickButtonBy(DELETE_ADVERT_FROM_FAVORITE_ADS);
+        buttons.searchAndClickButtonBy(CONFIRM_DELETE);
+    }
+
+    public boolean isNotVisibleSearchInFavorites() {
+        return elements.isNotVisibleElement(DELETE_ADVERT_FROM_FAVORITE_ADS);
+    }
+
+    public void chooseSellersSection() {
         buttons.searchAndClickButtonBy(SELLERS);
     }
 }
