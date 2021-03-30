@@ -2,6 +2,7 @@ package pages.advertisements;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import pages.BasePage;
 
@@ -21,18 +22,22 @@ public class Advertisements extends BasePage {
         super(driver);
     }
 
+    @Step("Go to advertisements list")
     public void goToAdvertisements() {
         buttons.searchAndClickButtonBy(MENU_LISTING);
     }
 
+    @Step("Go to first advert from list")
     public void goToFirstAdvert() {
         buttons.searchAndClickButtonBy(FIRST_ELEMENT_OF_ADS);
     }
 
+    @Step("Go to favorites")
     public void goToFavorites() {
         buttons.searchAndClickButtonBy(MENU_FAVORITES);
     }
 
+    @Step("Go to filters menu")
     public void goToFiltersMenu() {
         buttons.searchAndClickButtonBy(MENU_FILTERS);
     }

@@ -2,6 +2,7 @@ package pages.advertisements;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import pages.BasePage;
 
@@ -26,38 +27,56 @@ public class Advert extends BasePage {
     private WebElement COUNT_OF_ROOMS;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Категория']/following-sibling::android.widget.TextView")
     private WebElement NAME_OF_CATEGORY;
+    @AndroidFindBy(id = "se.scmv.belarus:id/name")
+    private WebElement NAME_OF_SELLER;
 
     public Advert(AndroidDriver driver) {
         super(driver);
     }
 
+    @Step("Add advert to favorites")
     public void addAdToFavorites() {
         buttons.searchAndClickButtonBy(FAVORITE_ICON);
         buttons.clickButtonBackOnKeyboard();
     }
 
+    @Step("Get advert title")
     public String getAdTitle() {
         return elements.getTextFromElement(AD_TITLE);
     }
 
+    @Step("Get advert price")
     public String getAdPrice() {
         return elements.getTextFromElement(AD_PRICE);
     }
 
+    @Step("Get advert ID")
     public String getAdId() {
         return elements.getTextFromElement(AD_ID);
     }
 
+    @Step("Choose seller and go to him")
     public void goToSeller() {
         screen.scrollablePage("Подписаться");
         buttons.searchAndClickButtonBy(SELLER_INFO);
     }
 
-    public void followOnSeller() {
+    @Step("Go to information about seller")
+    public void goToSellerInfo() {
         screen.scrollablePage("Подписаться");
+    }
+
+    @Step("Get name of seller")
+    public String getNameOfSeller() {
+        return elements.getTextFromElement(NAME_OF_SELLER);
+    }
+
+    @Step("Follow on seller")
+    public void followOnSeller() {
         buttons.searchAndClickButtonBy(FOLLOW_BUTTON);
     }
 
+    @Step("Get price in USD")
     public int getPriceUSD() {
         return Integer.parseInt(parsePriceUSD(getPriceUSDInStringFormat()));
     }
@@ -67,15 +86,18 @@ public class Advert extends BasePage {
         return elements.getTextFromElement(PRICE_USD);
     }
 
+    @Step("Go back!")
     public void goBack() {
         buttons.searchAndClickButtonBy(BACK_BUTTON);
     }
 
+    @Step("Get count rooms of apartment from advert")
     public String getCountOfRoomsFromAdvert() {
         screen.scrollablePage("Количество комнат");
         return elements.getTextFromElement(COUNT_OF_ROOMS);
     }
 
+    @Step("Get name of category from advert")
     public String getNameOfCategoryFromAdvert() {
         screen.scrollablePage("Категория");
         return elements.getTextFromElement(NAME_OF_CATEGORY);
