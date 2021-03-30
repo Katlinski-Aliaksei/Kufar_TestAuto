@@ -116,7 +116,11 @@ public class Favorites extends BasePage {
     @Step("Unfollow of seller from \"Sellers\" section")
     public void unfollowOfSeller() {
         buttons.searchAndClickButtonBy(IS_FOLLOW_BUTTON);
-
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         screen.swipe(Direction.DOWN);
     }
 

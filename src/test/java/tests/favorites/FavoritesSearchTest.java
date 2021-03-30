@@ -3,6 +3,7 @@ package tests.favorites;
 import core.InitialDriver;
 import enums.Credentials;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.favorites.Favorites;
@@ -39,6 +40,11 @@ public class FavoritesSearchTest {
     public void deleteSearchFromFavorites() {
         favorites.deleteSearchFromFavorites();
         Assert.assertTrue(favorites.isNotVisibleSearchInFavorites());
+    }
+
+    @AfterTest
+    public void logOut() {
+        someScreen.logOut();
     }
 
     private void chooseTypesOfCategory() {

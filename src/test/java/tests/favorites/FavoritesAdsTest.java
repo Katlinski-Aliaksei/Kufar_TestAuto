@@ -6,10 +6,10 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pages.favorites.Favorites;
 import pages.SomeScreen;
 import pages.advertisements.Advert;
 import pages.advertisements.Advertisements;
+import pages.favorites.Favorites;
 
 public class FavoritesAdsTest {
     Favorites favorites = new Favorites(InitialDriver.getDriver());
@@ -32,6 +32,7 @@ public class FavoritesAdsTest {
         String expectedAdTitle = advert.getAdTitle();
         advert.goBack();
         advertisements.goToFavorites();
+        favorites.chooseAdsSection();
         String actualAdTitle = favorites.getAdTitleInFavorite();
 
         Assert.assertEquals(expectedAdTitle, actualAdTitle);
