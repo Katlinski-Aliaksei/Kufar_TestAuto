@@ -57,7 +57,7 @@ public class FiltersTest {
     private void chooseTypesOfCategory() {
         filters.goToAdvertisements();
         filters.goToFiltersMenu();
-        filters.chooseApartmentCategory();
+        filters.chooseImmovabilityCategory();
         expectedTypeOfSection = filters.getTypeOfSection();
         filters.chooseApartmentSection();
     }

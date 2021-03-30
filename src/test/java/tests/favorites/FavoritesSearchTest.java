@@ -5,7 +5,7 @@ import enums.Credentials;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pages.Favorites;
+import pages.favorites.Favorites;
 import pages.SomeScreen;
 import pages.advertisements.Advertisements;
 import pages.advertisements.Filters;
@@ -25,7 +25,7 @@ public class FavoritesSearchTest {
     }
 
     @Test
-    public void When_SaveFavoriteSearch_Then_ThisSearchIsVisibleInFavorites() {
+    public void saveFavoriteSearch() {
         chooseTypesOfCategory();
         goToFavoriteSearch();
 
@@ -35,16 +35,16 @@ public class FavoritesSearchTest {
         Assert.assertTrue(isContainsSearch);
     }
 
-    @Test(dependsOnMethods = "When_SaveFavoriteSearch_Then_ThisSearchIsVisibleInFavorites")
-    public void When_DeleteFavoriteSearch_Then_HeRemoving() {
-        favorites.deleteAdvertFromFavoriteAds();
+    @Test(dependsOnMethods = "saveFavoriteSearch")
+    public void deleteSearchFromFavorites() {
+        favorites.deleteSearchFromFavorites();
         Assert.assertTrue(favorites.isNotVisibleSearchInFavorites());
     }
 
     private void chooseTypesOfCategory() {
         filters.goToAdvertisements();
         filters.goToFiltersMenu();
-        filters.chooseApartmentCategory();
+        filters.chooseImmovabilityCategory();
         expectedNameOfSearch = filters.getTypeOfSection();
         filters.chooseApartmentSection();
     }
