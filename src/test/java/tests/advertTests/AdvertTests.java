@@ -7,12 +7,12 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.SomeScreen;
-import pages.advert.Advert;
+import pages.newAdverts.NewAdvert;
 import pages.profile.Profile;
 
 public class AdvertTests {
     Profile profile = new Profile(InitialDriver.getDriver());
-    Advert advert = new Advert(InitialDriver.getDriver());
+    NewAdvert advert = new NewAdvert(InitialDriver.getDriver());
     SomeScreen someScreen = new SomeScreen(InitialDriver.getDriver());
 
     @BeforeTest
@@ -21,7 +21,7 @@ public class AdvertTests {
     }
 
     @Test
-    public void addNewAdvertHuaweiForSaleTest() {
+    public void addNewAdvertHuaweiForSaleTest() throws InterruptedException {
         advert.addNewAdvertHuaweiPhoneForSale();
         profile.clickBackButton();
         profile.clickMenuProfileButton();

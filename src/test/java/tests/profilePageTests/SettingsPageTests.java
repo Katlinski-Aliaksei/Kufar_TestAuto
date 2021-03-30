@@ -1,9 +1,8 @@
 package tests.profilePageTests;
 
 import core.InitialDriver;
-import elements.Buttons;
-import elements.Elements;
 import enums.Credentials;
+import io.qameta.allure.Owner;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
@@ -12,18 +11,18 @@ import pages.SomeScreen;
 
 public class SettingsPageTests {
     SomeScreen someScreen = new SomeScreen(InitialDriver.getDriver());
-    Elements elements = new Elements();
     Profile profile = new Profile(InitialDriver.getDriver());
-    Buttons buttons = new Buttons();
 
-    @BeforeMethod
+    @BeforeTest
     public void setCap() {
         someScreen.logIn(Credentials.EMAIL.getType(), Credentials.PASS.getType());
     }
 
     @Test
-    public void languageMenuTest() {
+    @Owner("Katlinski Aliaksei")
+    public void languageMenuTest() throws InterruptedException {
         SoftAssert softAssertion = new SoftAssert();
+        profile.clickMenuProfileButton();
         profile.openSettings();
         profile.clickDropButtonLanguage();
         softAssertion.assertEquals(profile.checkRusLang(), "Русский");
@@ -34,7 +33,9 @@ public class SettingsPageTests {
     }
 
     @Test
-    public void checkSelectLanguageTest() {
+    @Owner("Katlinski Aliaksei")
+    public void checkSelectLanguageTest() throws InterruptedException {
+        profile.clickMenuProfileButton();
         profile.openSettings();
         profile.clickDropButtonLanguage();
         profile.setBelLanguage();
@@ -47,7 +48,7 @@ public class SettingsPageTests {
         profile.clickBackButton();
     }
 
-    @AfterMethod
+    @AfterTest
     public void logOut() {
         someScreen.logOut();
     }

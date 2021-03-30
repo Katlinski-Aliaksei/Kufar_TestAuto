@@ -24,4 +24,28 @@
             <class name="tests.advertisements.FiltersTest"/>
         </classes>
     </test>
+
+    <test name="ProfilePageTests">
+        <classes>
+            <class name="tests.profilePageTests.ProfilePageTests"/>
+        </classes>
+    </test>
+
+    <test name="SettingsPageTests">
+        <classes>
+            <class name="tests.profilePageTests.SettingsPageTests"/>
+        </classes>
+    </test>
+
+    <test name="MyPayCardsTest" >
+        <classes>
+            <class name="tests.profilePageTests.MyPayCardsTest"/>
+        </classes>
+    </test>
+
+    <test name="AdvertTests">
+        <classes>
+            <class name="tests.advertTests.AdvertTests"/>
+        </classes>
+    </test>
 </suite>

@@ -2,6 +2,7 @@ package tests.profilePageTests;
 
 import core.InitialDriver;
 import enums.Credentials;
+import io.qameta.allure.Owner;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -22,7 +23,8 @@ public class MyPayCardsTest {
     }
 
     @Test
-    public void registrationNewCardTest() {
+    @Owner("Katlinski Aliaksei")
+    public void registrationNewCardTest() throws InterruptedException {
         profile.openSettings();
         settings.clickMyPayCardsButton();
         Assert.assertTrue(settings.checkAddNewCardButton());
@@ -31,6 +33,7 @@ public class MyPayCardsTest {
     }
 
     @Test
+    @Owner("Katlinski Aliaksei")
     public void addCardDataTest() throws InterruptedException {
         SoftAssert softAssertion = new SoftAssert();
         profile.openSettings();
