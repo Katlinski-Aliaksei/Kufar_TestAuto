@@ -6,10 +6,10 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pages.favorites.Favorites;
 import pages.SomeScreen;
 import pages.advertisements.Advertisements;
 import pages.advertisements.Filters;
+import pages.favorites.Favorites;
 
 public class FavoritesSearchTest {
     private String expectedNameOfSearch;
