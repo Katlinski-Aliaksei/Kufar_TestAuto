@@ -14,11 +14,11 @@ public class Filters extends BasePage {
     private WebElement FILTERS_BUTTON;
     @AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]")
     private WebElement CATEGORIES_LIST;
-    @AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[2]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Недвижимость')]/..")
     private WebElement IMMOVABILITY_CATEGORY;
-    @AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[3]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Квартиры')]/..")
     private WebElement APARTMENT_SECTION;
-    @AndroidFindBy(xpath = "//android.widget.LinearLayout[3]/android.widget.TextView")
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Квартиры')]")
     private WebElement TYPE_OF_SECTION;
     @AndroidFindBy(id = "se.scmv.belarus:id/filter_menu_apply")
     private WebElement FILTER_MENU_APPLY_BUTTON;
