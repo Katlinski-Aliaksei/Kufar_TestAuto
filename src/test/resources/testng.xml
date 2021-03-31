@@ -1,6 +1,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Suite1" verbose="1">
+
+    <listeners>
+        <listener class-name="tests.ListenerTest" />
+    </listeners>
+
     <test name="ProfilePageTests">
         <classes>
             <class name="tests.profilePageTests.ProfilePageTests"/>
@@ -24,6 +29,7 @@
             <class name="tests.advertTests.AdvertTests"/>
         </classes>
     </test>
+
     <test name="FavoritesSearchTest">
         <classes>
             <class name="tests.favorites.FavoritesSearchTest"/>
@@ -47,6 +53,4 @@
             <class name="tests.advertisements.FiltersTest"/>
         </classes>
     </test>
-
-
 </suite>

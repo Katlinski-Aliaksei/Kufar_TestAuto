@@ -77,6 +77,11 @@ public class Favorites extends BasePage {
     @Step("Choose search favorites section")
     public void chooseSearchSection() {
         buttons.searchAndClickButtonBy(SEARCH_FAVORITES);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         screen.swipe(Direction.DOWN);
 
     }
