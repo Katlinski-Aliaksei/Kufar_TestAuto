@@ -24,11 +24,11 @@
         </classes>
     </test>
 
-<!--    <test name="AdvertTests">-->
-<!--        <classes>-->
-<!--            <class name="tests.advertTests.AdvertTests"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="AdvertTests">
+        <classes>
+            <class name="tests.advertTests.AdvertTests"/>
+        </classes>
+    </test>
 
     <test name="FavoritesSearchTest">
         <classes>
@@ -53,6 +53,4 @@
             <class name="tests.advertisements.FiltersTest"/>
         </classes>
     </test>
-
-
 </suite>
