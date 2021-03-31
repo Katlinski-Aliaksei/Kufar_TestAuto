@@ -27,7 +27,7 @@ public class NewAdvert extends BasePage {
     private WebElement MODEL_DROPDOWN_BUTTON;
     @AndroidFindBy(xpath = "/hierarchy//androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[3]")
     private WebElement ENJOY_10_PLUS;
-    @AndroidFindBy(xpath = "/hierarchy//android.widget.LinearLayout[3]/android.view.ViewGroup/android.widget.CompoundButton[1]")
+    @AndroidFindBy(xpath = "//android.widget.CompoundButton[contains(@text, 'Android')]")
     private WebElement ANDROID_BUTTON;
     @AndroidFindBy(xpath = "/hierarchy//android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.CompoundButton[3]")
     private WebElement DIAGONAL;
@@ -147,9 +147,9 @@ public class NewAdvert extends BasePage {
         clickAddAdvert();
         setTitle("Huawei");
         setCategories(TELEPHONES_AND_TABLETS, MOBILE_PHONES);
+        clickAndroidButton();
         setManufacturer(HUAWEI_PHONE);
         setModelPhone(ENJOY_10_PLUS);
-        clickAndroidButton();
         setDiagonal();
         setMemory();
         clickConditionButton(USED_BUTTON);
