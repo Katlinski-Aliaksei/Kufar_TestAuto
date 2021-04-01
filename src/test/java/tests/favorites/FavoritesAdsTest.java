@@ -3,6 +3,7 @@ package tests.favorites;
 import core.InitialDriver;
 import enums.Credentials;
 import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -26,6 +27,7 @@ public class FavoritesAdsTest {
     }
 
     @Test
+    @Owner(value = "Vadym Sula")
     @Description("Check on conformity title's added advert to favorites")
     public void addAdvertToFavorites() {
         advertisements.goToAdvertisements();
@@ -41,6 +43,7 @@ public class FavoritesAdsTest {
     }
 
     @Test(dependsOnMethods = "addAdvertToFavorites")
+    @Owner(value = "Vadym Sula")
     @Description("Check on success unlike advert from favorites")
     public void unlikedAdvertFromFavorites() {
         Assert.assertTrue(favorites.isNotVisibleAdsInFavorites());

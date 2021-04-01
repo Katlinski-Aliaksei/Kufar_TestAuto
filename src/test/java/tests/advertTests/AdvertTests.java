@@ -2,6 +2,7 @@ package tests.advertTests;
 
 import core.InitialDriver;
 import enums.Credentials;
+import io.qameta.allure.Owner;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -21,6 +22,7 @@ public class AdvertTests {
     }
 
     @Test
+    @Owner("Katlinski Aliaksei")
     public void addNewAdvertHuaweiForSaleTest() throws InterruptedException {
         advert.addNewAdvertHuaweiPhoneForSale();
         profile.clickBackButton();
