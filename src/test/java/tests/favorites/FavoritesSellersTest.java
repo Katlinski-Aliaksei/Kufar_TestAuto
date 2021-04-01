@@ -2,6 +2,7 @@ package tests.favorites;
 
 import core.InitialDriver;
 import enums.Credentials;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -25,6 +26,7 @@ public class FavoritesSellersTest {
     }
 
     @Test
+    @Description("Check on success following on seller and conformity his name before/after follow")
     public void followingOnSeller() {
         advertisements.goToAdvertisements();
         advertisements.goToFirstAdvert();
@@ -40,6 +42,7 @@ public class FavoritesSellersTest {
     }
 
     @Test
+    @Description("Check on success unfollowing from seller")
     public void unfollowFromSeller() {
         favorites.unfollowOfSeller();
 

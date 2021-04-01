@@ -2,6 +2,7 @@ package tests.favorites;
 
 import core.InitialDriver;
 import enums.Credentials;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -25,7 +26,8 @@ public class FavoritesAdsTest {
     }
 
     @Test
-    public void When_AdvertAddToFavorites_Then_TheirTitlesEquals() {
+    @Description("Check on conformity title's added advert to favorites")
+    public void addAdvertToFavorites() {
         advertisements.goToAdvertisements();
         advertisements.goToFirstAdvert();
         advert.addAdToFavorites();
@@ -38,8 +40,9 @@ public class FavoritesAdsTest {
         Assert.assertEquals(expectedAdTitle, actualAdTitle);
     }
 
-    @Test(dependsOnMethods = "When_AdvertAddToFavorites_Then_TheirTitlesEquals")
-    public void When_UserUnlikedAdvertisement_Then_AdsRemoved() {
+    @Test(dependsOnMethods = "addAdvertToFavorites")
+    @Description("Check on success unlike advert from favorites")
+    public void unlikedAdvertFromFavorites() {
         Assert.assertTrue(favorites.isNotVisibleAdsInFavorites());
     }
 

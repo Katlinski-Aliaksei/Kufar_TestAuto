@@ -2,6 +2,7 @@ package tests.favorites;
 
 import core.InitialDriver;
 import enums.Credentials;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -26,6 +27,7 @@ public class FavoritesSearchTest {
     }
 
     @Test
+    @Description("Check on existence Search in favorites")
     public void saveFavoriteSearch() {
         chooseTypesOfCategory();
         goToFavoriteSearch();
@@ -37,6 +39,7 @@ public class FavoritesSearchTest {
     }
 
     @Test(dependsOnMethods = "saveFavoriteSearch")
+    @Description("Check on success removing search from favorites")
     public void deleteSearchFromFavorites() {
         favorites.deleteSearchFromFavorites();
         Assert.assertTrue(favorites.isNotVisibleSearchInFavorites());

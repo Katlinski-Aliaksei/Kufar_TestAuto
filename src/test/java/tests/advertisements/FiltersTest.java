@@ -1,6 +1,7 @@
 package tests.advertisements;
 
 import core.InitialDriver;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -28,7 +29,8 @@ public class FiltersTest {
     }
 
     @Test
-    public void enteredPriceBefore_MustBe_EqualsPriceAdsAfterSearch() {
+    @Description("Check on conformity prices before and after filters")
+    public void pricesIsEquals() {
         int priceFrom = Integer.parseInt(PRICE_FROM);
         int priceTo = Integer.parseInt(PRICE_TO);
         boolean isBetweenAnd = priceFrom <= advert.getPriceUSD() && advert.getPriceUSD() <= priceTo;
@@ -36,14 +38,16 @@ public class FiltersTest {
     }
 
     @Test(priority = 1)
-    public void When_ChooseCategoriesTypeOfSection_Then_EqualsAfterSearch() {
+    @Description("Check on conformity types of sections before and after filters")
+    public void typeOfSectionsIsEquals() {
         String actualTypeOfCategory = advert.getNameOfCategoryFromAdvert();
 
         Assert.assertEquals(expectedTypeOfSection, actualTypeOfCategory);
     }
 
     @Test(priority = 1)
-    public void When_ChooseCategoriesCountOfRooms_Then_EqualsAfterSearch() {
+    @Description("Check on conformity count of rooms before and after filters")
+    public void countOfRoomsIsEquals() {
         String actualCountOfRooms = advert.getCountOfRoomsFromAdvert();
 
         Assert.assertEquals(expectedCountOfRooms, actualCountOfRooms);
