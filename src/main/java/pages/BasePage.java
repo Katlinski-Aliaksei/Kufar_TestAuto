@@ -11,7 +11,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
     private AndroidDriver driver;
-
     protected Buttons buttons;
     protected Screen screen;
     protected Elements elements;
